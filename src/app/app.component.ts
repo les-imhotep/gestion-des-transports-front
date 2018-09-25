@@ -22,6 +22,7 @@ import { Collegue } from "./auth/auth.domains";
     </div> 
     
     -->
+    
     <router-outlet></router-outlet> 
   `,
   styles: []
