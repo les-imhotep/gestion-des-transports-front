@@ -19,9 +19,17 @@ export class CollegueService {
 
   constructor(private _http: HttpClient) { }
 
-  listerAnnonces(): Observable<Annonce[]>{
+  listerAnnoncesEnCours(): Observable<Annonce[]>{
     return this._http
-    .get(URL_BASE+"collaborateur/annonces")
+    .get(URL_BASE+"collaborateur/annonces/encours")
+    .pipe(
+      map((data: any[]) => data.map(annonce => new Annonce(annonce.horaireDeDepart, annonce.lieuDeDepart, annonce.lieuDeDestination, annonce.nombreDeVoyageurs)))
+    )
+  }
+
+  listerAnnoncesHistorique(): Observable<Annonce[]>{
+    return this._http
+    .get(URL_BASE+"collaborateur/annonces/historique")
     .pipe(
       map((data: any[]) => data.map(annonce => new Annonce(annonce.horaireDeDepart, annonce.lieuDeDepart, annonce.lieuDeDestination, annonce.nombreDeVoyageurs)))
     )

@@ -10,19 +10,25 @@ import { Annonce } from '../models/annonce';
 })
 export class ListeAnnoncesComponent implements OnInit {
 
-  annonces: Annonce[] = [];
+  annoncesEnCours: Annonce[] = [];
+  annoncesHistorique: Annonce[] = [];
 
-  constructor(private _postSrv: CollegueService) { 
-    
+  constructor(private _postSrv: CollegueService) {
+
   }
 
   ngOnInit() {
     this._postSrv
-       .listerAnnonces()
-       .subscribe(
-        tabAnnonces => this.annonces = tabAnnonces,
-        
-      );
+      .listerAnnoncesEnCours()
+      .subscribe(
+        tabAnnonces => this.annoncesEnCours = tabAnnonces);
+
+    this._postSrv
+      .listerAnnoncesHistorique()
+      .subscribe(
+        tabAnnonces => this.annoncesHistorique = tabAnnonces);
   }
+
+
 
 }
