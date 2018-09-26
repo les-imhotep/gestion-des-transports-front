@@ -13,6 +13,7 @@ import {AuthInterceptorService} from "./auth/auth-interceptor.service";
 import { MenuCollaborateurComponent } from './menu-collaborateur/menu-collaborateur.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ListeAnnoncesComponent } from './liste-annonces/liste-annonces.component';
+import { ListerCovoituragesComponent } from './lister-covoiturages/lister-covoiturages.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path:'auth', component: AuthComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full'},
   { path: 'collaborateur/annonces', component: ListeAnnoncesComponent, canActivate:[StatutConnecteService]},
+  { path: 'collaborateur/reservations', component: ListerCovoituragesComponent, canActivate:[StatutConnecteService]}
 ];
 
 
@@ -31,7 +33,8 @@ const routes: Routes = [
     AuthComponent,
     MenuCollaborateurComponent,
     AccueilComponent,
-    ListeAnnoncesComponent
+    ListeAnnoncesComponent,
+    ListerCovoituragesComponent
   ],
   imports: [
     BrowserModule,
