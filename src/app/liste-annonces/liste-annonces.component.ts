@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CollegueService } from '../services/collegue.service';
-import { Annonce } from '../models';
+import { CollegueService } from '../services/annonce.service';
+import { Annonce } from '../models/annonce';
 
 @Component({
   selector: 'app-liste-annonces',
@@ -10,16 +10,17 @@ import { Annonce } from '../models';
 })
 export class ListeAnnoncesComponent implements OnInit {
 
-  @Input() annonce: Annonce = new Annonce("","","")
-  annonces: string;
+  annonces: Annonce[] = [];
 
-  constructor(private _postSrv: CollegueService) { }
+  constructor(private _postSrv: CollegueService) { 
+    
+  }
 
   ngOnInit() {
     this._postSrv
        .listerAnnonces()
        .subscribe(
-        Annonce => this.annonce = Annonce,
+        tabAnnonces => this.annonces = tabAnnonces,
         
       );
   }

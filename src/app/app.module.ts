@@ -14,6 +14,7 @@ import { MenuCollaborateurComponent } from './menu-collaborateur/menu-collaborat
 import { AccueilComponent } from './accueil/accueil.component';
 import { ListeAnnoncesComponent } from './liste-annonces/liste-annonces.component';
 
+
 const routes: Routes = [
   { path: 'accueil', component: AccueilComponent, canActivate:[StatutConnecteService]},
   { path:'tech', component: TechComponent, canActivate:[StatutConnecteService]}, // /tech accessible uniquement si connecté

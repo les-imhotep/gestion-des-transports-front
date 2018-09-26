@@ -11,6 +11,7 @@
 
     <div class="mt-5">
       <h5>Annonces en cours</h5>
+
       <table class="table table-bordered table-striped table-sm mt-4">
         <thead>
           <tr>
@@ -21,22 +22,26 @@
             <th></th>
           </tr>
         </thead>
+        
         <tbody>
-          <tr>
-            <th scope="row">{{annonce.horaireDeDepart}}</th>
-            <td>{{annonce.lieuDeDepart}}</td>
-            <td>{{annonce.lieuDeDestination}}</td>
-            <td>{{annonce.nombreDeVoyageurs}}</td>
-            <td> <button type="button" class="btn btn-outline-danger btn-sm">Danger</button> </td>
+          <tr *ngFor="let ann of annonces">
+            <td>{{ann.horaireDeDepart}}</td>
+            <td>{{ann.lieuDeDepart}}</td>
+            <td>{{ann.lieuDeDestination}}</td>
+            <td>{{ann.nombreDeVoyageurs}}</td>
+            <td> <button type="button" class="btn btn-outline-danger btn-sm">Annuler</button> </td>
           </tr>
         </tbody>
       </table>
+      
     </div>
+
+
 
     <div class="mt-5">
       <h5>Historique</h5>
+      
       <table class="table table-bordered table-striped table-sm  mt-4">
-
         <thead>
           <tr>
             <th scope="col">Date / heure de départ</th>
@@ -45,9 +50,10 @@
             <th scope="col">Nombre de voyageurs</th>
           </tr>
         </thead>
+        
         <tbody>
           <tr>
-            <th scope="row"></th>
+            <th></th>
             <td></td>
             <td></td>
             <td></td>
