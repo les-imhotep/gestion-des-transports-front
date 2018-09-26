@@ -14,10 +14,10 @@ import { MenuCollaborateurComponent } from './menu-collaborateur/menu-collaborat
 import { AccueilComponent } from './accueil/accueil.component';
 
 const routes: Routes = [
-  { path: 'accueil', component: AccueilComponent },
+  { path: 'accueil', component: AccueilComponent, canActivate:[StatutConnecteService]},
   { path:'tech', component: TechComponent, canActivate:[StatutConnecteService]}, // /tech accessible uniquement si connecté
   { path:'auth', component: AuthComponent},
-  { path: '', redirectTo: '/accueil', pathMatch: 'full'}
+  { path: '', redirectTo: '/tech', pathMatch: 'full'}
 ];
 
 
