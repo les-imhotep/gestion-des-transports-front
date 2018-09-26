@@ -12,12 +12,15 @@ import {StatutConnecteService} from "./auth/statut-connecte.service";
 import {AuthInterceptorService} from "./auth/auth-interceptor.service";
 import { MenuCollaborateurComponent } from './menu-collaborateur/menu-collaborateur.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { ListeAnnoncesComponent } from './liste-annonces/liste-annonces.component';
+
 
 const routes: Routes = [
   { path: 'accueil', component: AccueilComponent, canActivate:[StatutConnecteService]},
   { path:'tech', component: TechComponent, canActivate:[StatutConnecteService]}, // /tech accessible uniquement si connecté
   { path:'auth', component: AuthComponent},
-  { path: '', redirectTo: '/tech', pathMatch: 'full'}
+  { path: '', redirectTo: '/accueil', pathMatch: 'full'},
+  { path: 'collaborateur/annonces', component: ListeAnnoncesComponent, canActivate:[StatutConnecteService]},
 ];
 
 
@@ -27,7 +30,8 @@ const routes: Routes = [
     TechComponent,
     AuthComponent,
     MenuCollaborateurComponent,
-    AccueilComponent
+    AccueilComponent,
+    ListeAnnoncesComponent
   ],
   imports: [
     BrowserModule,
