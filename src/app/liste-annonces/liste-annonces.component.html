@@ -22,9 +22,9 @@
             <th></th>
           </tr>
         </thead>
-        
+
         <tbody>
-          <tr *ngFor="let ann of annonces">
+          <tr *ngFor="let ann of annoncesEnCours">
             <td>{{ann.horaireDeDepart}}</td>
             <td>{{ann.lieuDeDepart}}</td>
             <td>{{ann.lieuDeDestination}}</td>
@@ -33,14 +33,14 @@
           </tr>
         </tbody>
       </table>
-      
+
     </div>
 
 
 
     <div class="mt-5">
       <h5>Historique</h5>
-      
+
       <table class="table table-bordered table-striped table-sm  mt-4">
         <thead>
           <tr>
@@ -50,13 +50,13 @@
             <th scope="col">Nombre de voyageurs</th>
           </tr>
         </thead>
-        
+
         <tbody>
-          <tr>
-            <th></th>
-            <td></td>
-            <td></td>
-            <td></td>
+          <tr *ngFor="let ann of annoncesHistorique">
+            <td>{{ann.horaireDeDepart}}</td>
+            <td>{{ann.lieuDeDepart}}</td>
+            <td>{{ann.lieuDeDestination}}</td>
+            <td>{{ann.nombreDeVoyageurs}}</td>
           </tr>
         </tbody>
       </table>
