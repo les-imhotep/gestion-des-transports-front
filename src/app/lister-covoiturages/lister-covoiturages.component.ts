@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Covoiturage } from '../models/covoiturage';
 import { CovoiturageService } from '../services/covoiturage.service';
-import { Annonce } from '../models/annonce';
-import { Collegue } from '../models/collegue';
 import { ActivatedRoute} from '@angular/router';
+import { Collegue } from '../models/collegue';
+import { Annonce } from '../models/annonce';
+import { Vehicule } from '../models/vehicule';
 
 @Component({
   selector: 'app-lister-covoiturages',
@@ -14,14 +15,14 @@ export class ListerCovoituragesComponent implements OnInit {
 
   covoituragesEnCours: Covoiturage[] = [];
   covoituragesHistorique: Covoiturage[] = [];
-  //annonce: Annonce = new Annonce("","","","");
-  //collegue: Collegue = new Collegue("","","");
+  selectedCovoit: Covoiturage = new Covoiturage("",new Collegue("","",""), new Annonce("","","","","",new Vehicule("","",""),new Collegue("","","")));
 
   constructor(private _postSrv: CovoiturageService, private _activateRoute:ActivatedRoute) {
 
   }
 
   ngOnInit() {
+    console.log(this.selectedCovoit);
     this._postSrv
       .listerCovoituragesEnCours()
       .subscribe(
@@ -36,6 +37,11 @@ export class ListerCovoituragesComponent implements OnInit {
   supprimer(id: number) {
     this._postSrv.supprimerCovoiturage(id)
     .subscribe(() => this.ngOnInit());
+  }
+
+  select(covoit: Covoiturage) {
+    this.selectedCovoit=covoit;
+    console.log(this.selectedCovoit)
   }
 
 }
