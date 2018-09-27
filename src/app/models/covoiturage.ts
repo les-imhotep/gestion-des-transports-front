@@ -3,6 +3,7 @@ import { Collegue } from "./collegue";
 
 export class Covoiturage {
 
+    id: number;
     collegue: Collegue;
     annonce: Annonce;
     //horaireDeDepart: Date;
@@ -11,7 +12,8 @@ export class Covoiturage {
     //vehicule: string;
     //chauffeur: string;
 
-    constructor(collegue, annonce/*horaireDeDepart, lieuDeDepart, lieuDeDestination, vehicule, chauffeur*/) {
+    constructor(id, collegue, annonce/*horaireDeDepart, lieuDeDepart, lieuDeDestination, vehicule, chauffeur*/) {
+        this.id = id;
         this.collegue = collegue;
         this.annonce = annonce;
         //this.horaireDeDepart = horaireDeDepart;
