@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient,HttpHeaders } from "@angular/common/http";
 import { Observable, Subject } from 'rxjs';
 import { Covoiturage } from '../models/covoiturage';
 import { environment } from '../../environments/environment';
@@ -25,7 +25,7 @@ export class CovoiturageService {
     return this._http
     .get(URL_BASE+"collaborateur/reservationsCovoiturage/encours")
     .pipe(
-      map((data: any[]) => data.map(covoiturage => new Covoiturage(covoiturage.collegueVM, covoiturage.annonceVM/*covoiturage.horaireDeDepart, covoiturage.lieuDeDepart, covoiturage.lieuDeDestination, covoiturage.vehicule, covoiturage.chauffeur*/)))
+      map((data: any[]) => data.map(covoiturage => new Covoiturage(covoiturage.id,covoiturage.collegueVM, covoiturage.annonceVM/*covoiturage.horaireDeDepart, covoiturage.lieuDeDepart, covoiturage.lieuDeDestination, covoiturage.vehicule, covoiturage.chauffeur*/)))
     )
   }
 
@@ -33,7 +33,19 @@ export class CovoiturageService {
     return this._http
     .get(URL_BASE+"collaborateur/reservationsCovoiturage/historique")
     .pipe(
-      map((data: any[]) => data.map(covoiturage => new Covoiturage(covoiturage.collegueVM, covoiturage.annonceVM/*covoiturage.horaireDeDepart, covoiturage.lieuDeDepart, covoiturage.lieuDeDestination, covoiturage.vehicule, covoiturage.chauffeur*/)))
+      map((data: any[]) => data.map(covoiturage => new Covoiturage(covoiturage.id,covoiturage.collegueVM, covoiturage.annonceVM/*covoiturage.horaireDeDepart, covoiturage.lieuDeDepart, covoiturage.lieuDeDestination, covoiturage.vehicule, covoiturage.chauffeur*/)))
     )
+  }
+
+  supprimerCovoiturage(id: number): Observable<Covoiturage>{
+    let resultat;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    };
+    console.log(id)
+    resultat = this._http.post(URL_BASE+"collaborateur/reservationsCovoiturage/"+id, httpOptions);
+    return resultat;
   }
 }

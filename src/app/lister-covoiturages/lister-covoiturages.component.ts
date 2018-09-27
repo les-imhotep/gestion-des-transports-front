@@ -33,6 +33,9 @@ export class ListerCovoituragesComponent implements OnInit {
         tabCovoiturages => this.covoituragesHistorique = tabCovoiturages);
   }
 
-
+  supprimer(id: number) {
+    this._postSrv.supprimerCovoiturage(id)
+    .subscribe(() => this.ngOnInit());
+  }
 
 }
