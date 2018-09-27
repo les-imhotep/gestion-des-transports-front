@@ -28,7 +28,9 @@ export class ListerReservationComponent implements OnInit {
       .subscribe(
         tabReservation => this.reservationHistorique = tabReservation);
   }
-
-
-
+  
+  supprimer(id: number) {
+    this._postSrv.supprimerReservation(id)
+    .subscribe(() => this.ngOnInit());
+  }
 }

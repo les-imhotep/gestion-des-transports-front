@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient,HttpHeaders } from "@angular/common/http";
 import { Observable, Subject } from 'rxjs';
 import { Reservation } from '../models/reservation';
 import { environment } from '../../environments/environment';
@@ -25,7 +25,7 @@ export class ReservationService {
     return this._http
     .get(URL_BASE+"collaborateur/reservationsVehicule/encours")
     .pipe(
-      map((data: any[]) => data.map(reservation => new Reservation(reservation.vehiculeSoc, reservation.depart, reservation.arrive)))
+      map((data: any[]) => data.map(reservation => new Reservation(reservation.id, reservation.vehiculeSoc, reservation.depart, reservation.arrive)))
     )
   }
 
@@ -33,7 +33,19 @@ export class ReservationService {
     return this._http
     .get(URL_BASE+"collaborateur/reservationsVehicule/historique")
     .pipe(
-      map((data: any[]) => data.map(reservation => new Reservation(reservation.vehiculeSoc, reservation.depart, reservation.arrive)))
+      map((data: any[]) => data.map(reservation => new Reservation(reservation.id, reservation.vehiculeSoc, reservation.depart, reservation.arrive)))
     )
+  }
+  
+  supprimerReservation(id: number): Observable<Reservation>{
+    let resultat;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    };
+    
+    resultat = this._http.post(URL_BASE+"collaborateur/reservationsVehicule/"+id, httpOptions);
+    return resultat;
   }
 }
