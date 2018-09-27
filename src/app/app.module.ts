@@ -15,6 +15,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { ListeAnnoncesComponent } from './liste-annonces/liste-annonces.component';
 import { ListerCovoituragesComponent } from './lister-covoiturages/lister-covoiturages.component';
 import { ListerReservationComponent } from './lister-reservation/lister-reservation.component';
+import { DetailsCovoiturageComponent } from './details-covoiturage/details-covoiturage.component';
 
 
 
@@ -38,7 +39,8 @@ const routes: Routes = [
     AccueilComponent,
     ListeAnnoncesComponent,
     ListerCovoituragesComponent,
-    ListerReservationComponent
+    ListerReservationComponent,
+    DetailsCovoiturageComponent
   ],
   imports: [
     BrowserModule,
