@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient,HttpHeaders } from "@angular/common/http";
 import { Observable, Subject } from 'rxjs';
 import { Annonce } from '../models/annonce';
 import { environment } from '../../environments/environment';
@@ -23,7 +23,7 @@ export class CollegueService {
     return this._http
     .get(URL_BASE+"collaborateur/annonces/encours")
     .pipe(
-      map((data: any[]) => data.map(annonce => new Annonce(annonce.horaireDeDepart, annonce.lieuDeDepart, annonce.lieuDeDestination, annonce.nombreDeVoyageurs)))
+      map((data: any[]) => data.map(annonce => new Annonce(annonce.id,annonce.horaireDeDepart, annonce.lieuDeDepart, annonce.lieuDeDestination, annonce.nombreDeVoyageurs)))
     )
   }
 
@@ -31,7 +31,19 @@ export class CollegueService {
     return this._http
     .get(URL_BASE+"collaborateur/annonces/historique")
     .pipe(
-      map((data: any[]) => data.map(annonce => new Annonce(annonce.horaireDeDepart, annonce.lieuDeDepart, annonce.lieuDeDestination, annonce.nombreDeVoyageurs)))
+      map((data: any[]) => data.map(annonce => new Annonce(annonce.id,annonce.horaireDeDepart, annonce.lieuDeDepart, annonce.lieuDeDestination, annonce.nombreDeVoyageurs)))
     )
+  }
+
+  supprimerAnnonce(id: number): Observable<Annonce>{
+    let resultat;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    };
+    
+    resultat = this._http.post(URL_BASE+"collaborateur/annonces/"+id, httpOptions);
+    return resultat;
   }
 }

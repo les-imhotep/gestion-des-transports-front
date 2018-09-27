@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { CollegueService } from '../services/annonce.service';
 import { Annonce } from '../models/annonce';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-liste-annonces',
@@ -13,7 +13,7 @@ export class ListeAnnoncesComponent implements OnInit {
   annoncesEnCours: Annonce[] = [];
   annoncesHistorique: Annonce[] = [];
 
-  constructor(private _postSrv: CollegueService) {
+  constructor(private _postSrv: CollegueService, private router: Router) {
 
   }
 
@@ -29,6 +29,8 @@ export class ListeAnnoncesComponent implements OnInit {
         tabAnnonces => this.annoncesHistorique = tabAnnonces);
   }
 
-
-
+  supprimer(id: number) {
+    this._postSrv.supprimerAnnonce(id)
+    .subscribe(() => this.ngOnInit());
+  }
 }
