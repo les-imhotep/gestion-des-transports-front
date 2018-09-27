@@ -25,7 +25,7 @@ export class CovoiturageService {
     return this._http
     .get(URL_BASE+"collaborateur/reservationsCovoiturage/encours")
     .pipe(
-      map((data: any[]) => data.map(covoiturage => new Covoiturage(covoiturage.id,covoiturage.collegueVM, covoiturage.annonceVM/*covoiturage.horaireDeDepart, covoiturage.lieuDeDepart, covoiturage.lieuDeDestination, covoiturage.vehicule, covoiturage.chauffeur*/)))
+      map((data: any[]) => data.map(covoiturage => new Covoiturage(covoiturage.id,covoiturage.collegue, covoiturage.annonce)))
     )
   }
 
@@ -33,7 +33,7 @@ export class CovoiturageService {
     return this._http
     .get(URL_BASE+"collaborateur/reservationsCovoiturage/historique")
     .pipe(
-      map((data: any[]) => data.map(covoiturage => new Covoiturage(covoiturage.id,covoiturage.collegueVM, covoiturage.annonceVM/*covoiturage.horaireDeDepart, covoiturage.lieuDeDepart, covoiturage.lieuDeDestination, covoiturage.vehicule, covoiturage.chauffeur*/)))
+      map((data: any[]) => data.map(covoiturage => new Covoiturage(covoiturage.id,covoiturage.collegue, covoiturage.annonce)))
     )
   }
 

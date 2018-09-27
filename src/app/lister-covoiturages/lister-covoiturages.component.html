@@ -28,7 +28,7 @@
             <td>{{covoit.annonce.lieuDeDepart}}</td>
             <td>{{covoit.annonce.lieuDeDestination}}</td>
             <td>
-                <button type="button" class="btn btn-outline-primary btn-sm" (click)="detailsModal.show()">Détails</button>
+                <button type="button" class="btn btn-outline-primary btn-sm" (click)="select(covoit);basicModal.show()">Détails</button>
                 <button type="button" class="btn btn-outline-danger btn-sm" (click)="supprimer(covoit.id)">Supprimer</button>
             </td>
           </tr>
@@ -71,24 +71,24 @@
 
 <!-- *************************************** MODAL *************************************** -->
 
-<div mdbModal #detailsModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myDetailsModalLabel" aria-hidden="true">
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close pull-right" aria-label="Close" (click)="detailsModal.hide()">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
           <span aria-hidden="true">×</span>
         </button>
         <h4 class="modal-title w-100" id="myModalLabel">Détails du covoiturage</h4>
       </div>
       <div class="modal-body">
-        <p>Départ : {{covoit.annonce.lieuDeDepart}}</p>
-        <p>Destination : {{covoit.annonce.lieuDeDestination}}</p>
-        <p>Date & heure : {{covoit.annonce.horaireDeDepart}}</p>
-        <p>Véhicule : {{covoit.vehicule.immatriculation}}</p>
-        <p>Chauffeur : </p>
+        <p>Départ : {{selectedCovoit.annonce.lieuDeDepart}}</p>
+        <p>Destination : {{selectedCovoit.annonce.lieuDeDestination}}</p>
+        <p>Date & heure : {{selectedCovoit.annonce.horaireDeDepart}}</p>
+        <p>Véhicule : {{selectedCovoit.annonce.vehicule.immatriculation}}</p>
+        <p>Chauffeur : {{selectedCovoit.annonce.collegue.nom}} </p>
       </div>
       <div class="modal-footer">
-        <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="detailsModal.hide()" mdbWavesEffect>Fermer</button>
+        <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Fermer</button>
       </div>
     </div>
   </div>
