@@ -28,7 +28,7 @@
             <td>{{covoit.annonce.lieuDeDepart}}</td>
             <td>{{covoit.annonce.lieuDeDestination}}</td>
             <td>
-                <button type="button" class="btn btn-outline-primary btn-sm">Détails</button>
+                <button type="button" class="btn btn-outline-primary btn-sm" (click)="detailsModal.show()">Détails</button>
                 <button type="button" class="btn btn-outline-danger btn-sm" (click)="supprimer(covoit.id)">Supprimer</button>
             </td>
           </tr>
@@ -65,6 +65,31 @@
 
       <app-lister-reservation></app-lister-reservation>
 
+    </div>
+  </div>
+</div>
+
+<!-- *************************************** MODAL *************************************** -->
+
+<div mdbModal #detailsModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myDetailsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="detailsModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Détails du covoiturage</h4>
+      </div>
+      <div class="modal-body">
+        <p>Départ : {{covoit.annonce.lieuDeDepart}}</p>
+        <p>Destination : {{covoit.annonce.lieuDeDestination}}</p>
+        <p>Date & heure : {{covoit.annonce.horaireDeDepart}}</p>
+        <p>Véhicule : {{covoit.vehicule.immatriculation}}</p>
+        <p>Chauffeur : </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="detailsModal.hide()" mdbWavesEffect>Fermer</button>
+      </div>
     </div>
   </div>
 </div>
