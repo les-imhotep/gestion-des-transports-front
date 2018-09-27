@@ -35,7 +35,7 @@ export class CollegueService {
     )
   }
 
-  supprimerAnnonce(): Observable<Annonce>{
+  supprimerAnnonce(id: number): Observable<Annonce>{
     let resultat;
     const httpOptions = {
       headers: new HttpHeaders({
@@ -43,7 +43,7 @@ export class CollegueService {
       })
     };
     
-    resultat = this._http.post(URL_BASE+"collaborateur/annonces/1", httpOptions);
+    resultat = this._http.post(URL_BASE+"collaborateur/annonces/"+id, httpOptions);
     return resultat;
   }
 }

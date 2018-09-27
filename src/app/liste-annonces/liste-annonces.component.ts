@@ -29,8 +29,8 @@ export class ListeAnnoncesComponent implements OnInit {
         tabAnnonces => this.annoncesHistorique = tabAnnonces);
   }
 
-  supprimer() {
-    this._postSrv.supprimerAnnonce()
+  supprimer(id: number) {
+    this._postSrv.supprimerAnnonce(id)
     .subscribe(() => this.ngOnInit());
   }
 }
