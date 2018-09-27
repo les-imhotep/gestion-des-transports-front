@@ -23,7 +23,15 @@ export class CollegueService {
     return this._http
     .get(URL_BASE+"collaborateur/annonces/encours")
     .pipe(
-      map((data: any[]) => data.map(annonce => new Annonce(annonce.id,annonce.horaireDeDepart, annonce.lieuDeDepart, annonce.lieuDeDestination, annonce.nombreDeVoyageurs, annonce.vehicule, annonce.collegue)))
+      map((data: any[]) => data.map(annonce => new Annonce(annonce.id,
+          annonce.horaireDeDepart,
+          annonce.lieuDeDepart,
+          annonce.lieuDeDestination,
+          annonce.nombreDeVoyageurs,
+          annonce.vehicule,
+          annonce.collegue,
+          annonce.nombreDePlacesDisponibles
+          )))
     )
   }
 
@@ -31,7 +39,15 @@ export class CollegueService {
     return this._http
     .get(URL_BASE+"collaborateur/annonces/historique")
     .pipe(
-      map((data: any[]) => data.map(annonce => new Annonce(annonce.id,annonce.horaireDeDepart, annonce.lieuDeDepart, annonce.lieuDeDestination, annonce.nombreDeVoyageurs, annonce.vehicule, annonce.collegue)))
+      map((data: any[]) => data.map(annonce => new Annonce(annonce.id,
+        annonce.horaireDeDepart,
+        annonce.lieuDeDepart,
+        annonce.lieuDeDestination,
+        annonce.nombreDeVoyageurs,
+        annonce.vehicule,
+        annonce.collegue,
+        annonce.nombreDePlacesDisponibles
+        )))
     )
   }
 

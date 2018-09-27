@@ -16,6 +16,9 @@ import { ListeAnnoncesComponent } from './liste-annonces/liste-annonces.componen
 import { ListerCovoituragesComponent } from './lister-covoiturages/lister-covoiturages.component';
 import { ListerReservationComponent } from './lister-reservation/lister-reservation.component';
 import { DetailsCovoiturageComponent } from './details-covoiturage/details-covoiturage.component';
+import { CreerReservationComponent } from './creer-reservation/creer-reservation.component';
+import { ReservationCovoiturageComponent } from './reservation-covoiturage/reservation-covoiturage.component';
+import { ReservationVehiculeComponent } from './reservation-vehicule/reservation-vehicule.component';
 
 
 
@@ -26,7 +29,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/accueil', pathMatch: 'full'},
   { path: 'collaborateur/annonces', component: ListeAnnoncesComponent, canActivate:[StatutConnecteService]},
   { path: 'collaborateur/reservations', component: ListerCovoituragesComponent, canActivate:[StatutConnecteService]},
-  { path: 'collaborateur/reservations', component: ListerReservationComponent, canActivate:[StatutConnecteService]}
+  { path: 'collaborateur/reservations', component: ListerReservationComponent, canActivate:[StatutConnecteService]},
+  { path: 'collaborateur/reservations/creer', component: CreerReservationComponent, canActivate:[StatutConnecteService]}
 ];
 
 
@@ -40,7 +44,10 @@ const routes: Routes = [
     ListeAnnoncesComponent,
     ListerCovoituragesComponent,
     ListerReservationComponent,
-    DetailsCovoiturageComponent
+    DetailsCovoiturageComponent,
+    CreerReservationComponent,
+    ReservationCovoiturageComponent,
+    ReservationVehiculeComponent
   ],
   imports: [
     BrowserModule,
