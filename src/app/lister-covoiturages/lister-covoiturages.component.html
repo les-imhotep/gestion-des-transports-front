@@ -27,7 +27,10 @@
             <td>{{covoit.annonce.horaireDeDepart}}</td>
             <td>{{covoit.annonce.lieuDeDepart}}</td>
             <td>{{covoit.annonce.lieuDeDestination}}</td>
-            <td> <button type="button" class="btn btn-outline-primary btn-sm">Détails</button> </td>
+            <td>
+                <button type="button" class="btn btn-outline-primary btn-sm">Détails</button>
+                <button type="button" class="btn btn-outline-danger btn-sm">Supprimer</button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -58,6 +61,9 @@
           </tr>
         </tbody>
       </table>
+
+
+      <app-lister-reservation></app-lister-reservation>
 
     </div>
   </div>

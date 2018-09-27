@@ -14,6 +14,8 @@ import { MenuCollaborateurComponent } from './menu-collaborateur/menu-collaborat
 import { AccueilComponent } from './accueil/accueil.component';
 import { ListeAnnoncesComponent } from './liste-annonces/liste-annonces.component';
 import { ListerCovoituragesComponent } from './lister-covoiturages/lister-covoiturages.component';
+import { ListerReservationComponent } from './lister-reservation/lister-reservation.component';
+
 
 
 const routes: Routes = [
@@ -22,7 +24,8 @@ const routes: Routes = [
   { path:'auth', component: AuthComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full'},
   { path: 'collaborateur/annonces', component: ListeAnnoncesComponent, canActivate:[StatutConnecteService]},
-  { path: 'collaborateur/reservations', component: ListerCovoituragesComponent, canActivate:[StatutConnecteService]}
+  { path: 'collaborateur/reservations', component: ListerCovoituragesComponent, canActivate:[StatutConnecteService]},
+  { path: 'collaborateur/reservations', component: ListerReservationComponent, canActivate:[StatutConnecteService]}
 ];
 
 
@@ -34,7 +37,8 @@ const routes: Routes = [
     MenuCollaborateurComponent,
     AccueilComponent,
     ListeAnnoncesComponent,
-    ListerCovoituragesComponent
+    ListerCovoituragesComponent,
+    ListerReservationComponent
   ],
   imports: [
     BrowserModule,
