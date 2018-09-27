@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CollegueService } from '../services/annonce.service';
+import { AnnonceService } from '../services/annonce.service';
 import { Annonce } from '../models/annonce';
 import { Router } from '@angular/router';
 
@@ -13,7 +13,7 @@ export class ListeAnnoncesComponent implements OnInit {
   annoncesEnCours: Annonce[] = [];
   annoncesHistorique: Annonce[] = [];
 
-  constructor(private _postSrv: CollegueService, private router: Router) {
+  constructor(private _postSrv: AnnonceService, private router: Router) {
 
   }
 

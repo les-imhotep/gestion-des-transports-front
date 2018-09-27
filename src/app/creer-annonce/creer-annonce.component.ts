@@ -1,0 +1,34 @@
+import { Component, OnInit } from '@angular/core';
+import { AnnonceService } from '../services/annonce.service';
+import { Annonce } from '../models/annonce';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-creer-annonce',
+  templateUrl: './creer-annonce.component.html',
+  styleUrls: ['./creer-annonce.component.scss']
+})
+export class CreerAnnonceComponent implements OnInit {
+
+  annonce = new Annonce("","","","","","","","");
+  errMsg: string;
+  constructor(private _annonceSrv: AnnonceService, private router: Router) { }
+
+  ngOnInit() {
+  }
+
+  submit() {
+    this._annonceSrv
+      .publierAnnonce(this.annonce)
+      .subscribe(
+        () => this.annonce = new Annonce("","","","","","","",""),
+        errServeur => {
+          if (errServeur.error.message) {
+          this.errMsg = errServeur.error.message;
+        } else {
+          this.errMsg = errServeur.error.text;
+        }
+      });
+}
+
+}

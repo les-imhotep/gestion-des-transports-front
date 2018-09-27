@@ -19,6 +19,7 @@ import { DetailsCovoiturageComponent } from './details-covoiturage/details-covoi
 import { CreerReservationComponent } from './creer-reservation/creer-reservation.component';
 import { ReservationCovoiturageComponent } from './reservation-covoiturage/reservation-covoiturage.component';
 import { ReservationVehiculeComponent } from './reservation-vehicule/reservation-vehicule.component';
+import { CreerAnnonceComponent } from './creer-annonce/creer-annonce.component';
 
 
 
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path: 'collaborateur/annonces', component: ListeAnnoncesComponent, canActivate:[StatutConnecteService]},
   { path: 'collaborateur/reservations', component: ListerCovoituragesComponent, canActivate:[StatutConnecteService]},
   { path: 'collaborateur/reservations', component: ListerReservationComponent, canActivate:[StatutConnecteService]},
-  { path: 'collaborateur/reservations/creer', component: CreerReservationComponent, canActivate:[StatutConnecteService]}
+  { path: 'collaborateur/reservations/creer', component: CreerReservationComponent, canActivate:[StatutConnecteService]},
+  { path: 'collaborateur/annonces/creer', component: CreerAnnonceComponent, canActivate:[StatutConnecteService]}
 ];
 
 
@@ -47,7 +49,8 @@ const routes: Routes = [
     DetailsCovoiturageComponent,
     CreerReservationComponent,
     ReservationCovoiturageComponent,
-    ReservationVehiculeComponent
+    ReservationVehiculeComponent,
+    CreerAnnonceComponent
   ],
   imports: [
     BrowserModule,

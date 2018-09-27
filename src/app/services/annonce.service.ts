@@ -5,12 +5,13 @@ import { Annonce } from '../models/annonce';
 import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators';
 
-const URL_BASE = environment.baseUrl;
+const URL_BACKEND = environment.baseUrl;
+const OPTION_HTTP = {headers: new HttpHeaders({"Content-Type": "application/json"})};
 
 @Injectable({
   providedIn: 'root'
 })
-export class CollegueService {
+export class AnnonceService {
   private _superBus = new Subject<string>();
   
   get superBus(): Observable<string> {
@@ -21,7 +22,7 @@ export class CollegueService {
 
   listerAnnoncesEnCours(): Observable<Annonce[]>{
     return this._http
-    .get(URL_BASE+"collaborateur/annonces/encours")
+    .get(URL_BACKEND+"collaborateur/annonces/encours")
     .pipe(
       map((data: any[]) => data.map(annonce => new Annonce(annonce.id,
           annonce.horaireDeDepart,
@@ -37,7 +38,7 @@ export class CollegueService {
 
   listerAnnoncesHistorique(): Observable<Annonce[]>{
     return this._http
-    .get(URL_BASE+"collaborateur/annonces/historique")
+    .get(URL_BACKEND+"collaborateur/annonces/historique")
     .pipe(
       map((data: any[]) => data.map(annonce => new Annonce(annonce.id,
         annonce.horaireDeDepart,
@@ -59,7 +60,21 @@ export class CollegueService {
       })
     };
     
-    resultat = this._http.post(URL_BASE+"collaborateur/annonces/"+id, httpOptions);
+    resultat = this._http.post(URL_BACKEND+"collaborateur/annonces/"+id, httpOptions);
     return resultat;
   }
+
+  publierAnnonce(annonce: Annonce): Observable<Annonce> {
+    return this._http
+        .post(URL_BACKEND + "/nouveau", annonce, OPTION_HTTP)
+        .pipe(
+          map(((formServeur:any) =>Annonce.fromAnnonceServeur(formServeur)
+        )
+        )
+        );
+
+}
+
+
+
 }
