@@ -9,10 +9,11 @@ export class Annonce {
     lieuDeDepart: string;
     lieuDeDestination: string;
     nombreDeVoyageurs: number;
+    nombreDePlacesDisponibles: number;
     vehicule: Vehicule;
     collegue: Collegue;
 
-    constructor(id,horaireDeDepart, lieuDeDepart, lieuDeDestination, nombreDeVoyageurs, vehicule, collegue) {
+    constructor(id,horaireDeDepart, lieuDeDepart, lieuDeDestination, nombreDeVoyageurs, vehicule, collegue, nombreDePlacesDisponibles) {
         this.id = id;
         this.horaireDeDepart = horaireDeDepart;
         this.lieuDeDepart = lieuDeDepart;
@@ -20,6 +21,7 @@ export class Annonce {
         this.nombreDeVoyageurs = nombreDeVoyageurs;
         this.vehicule = vehicule;
         this.collegue = collegue;
+        this.nombreDePlacesDisponibles = nombreDePlacesDisponibles;
 
     }
 }
