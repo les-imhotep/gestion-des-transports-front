@@ -12,8 +12,8 @@
 
 <div class="row">
   <div class="col">
-    <input type="date" id="dateDepart" class="mb-4">
-    <input type="time" id="heureDepart" class="ml-2 mb-4">
+    <input type="date" [(ngModel)]="dateDepart" id="dateDepart" class="mb-4">
+    <input type="time" [(ngModel)]="heureDepart" id="heureDepart" class="ml-2 mb-4">
   </div>
 </div>
 
@@ -32,13 +32,14 @@
   </thead>
 
   <tbody>
-      <tr *ngFor="let covoit of covoituragesEnCours | filter : depart : destination">
+      <tr *ngFor="let covoit of covoituragesEnCours | filter : depart : destination : dateDepart : heureDepart">
         <td>{{covoit.annonce.horaireDeDepart}}</td>
         <td>{{covoit.annonce.lieuDeDepart}}</td>
         <td>{{covoit.annonce.lieuDeDestination}}</td>
         <td>{{covoit.annonce.vehicule.marque}} {{covoit.annonce.vehicule.modele}}</td>
         <td>{{covoit.annonce.collegue.nom}} {{covoit.annonce.collegue.prenom}}</td>
         <td>{{covoit.annonce.nombreDePlacesDisponibles}}</td>
+        <td>{{covoit.annonce | json}}</td>
         <td>
           <button type="button" class="btn btn-outline-danger btn-sm">Réserver</button>
         </td>
