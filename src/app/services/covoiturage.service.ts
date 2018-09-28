@@ -48,4 +48,12 @@ export class CovoiturageService {
     resultat = this._http.post(URL_BASE+"collaborateur/reservationsCovoiturage/"+id, httpOptions);
     return resultat;
   }
+
+  listerAllCovoituragesEnCours(): Observable<Covoiturage[]>{
+    return this._http
+    .get(URL_BASE+"collaborateur/reservationsCovoiturage")
+    .pipe(
+      map((data: any[]) => data.map(covoiturage => new Covoiturage(covoiturage.id,covoiturage.collegue, covoiturage.annonce)))
+    )
+  }
 }

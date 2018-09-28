@@ -20,6 +20,7 @@ import { CreerReservationComponent } from './creer-reservation/creer-reservation
 import { ReservationCovoiturageComponent } from './reservation-covoiturage/reservation-covoiturage.component';
 import { ReservationVehiculeComponent } from './reservation-vehicule/reservation-vehicule.component';
 import { CreerAnnonceComponent } from './creer-annonce/creer-annonce.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 
@@ -50,7 +51,8 @@ const routes: Routes = [
     CreerReservationComponent,
     ReservationCovoiturageComponent,
     ReservationVehiculeComponent,
-    CreerAnnonceComponent
+    CreerAnnonceComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
