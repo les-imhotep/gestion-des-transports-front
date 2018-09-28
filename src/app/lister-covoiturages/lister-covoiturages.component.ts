@@ -15,7 +15,7 @@ export class ListerCovoituragesComponent implements OnInit {
 
   covoituragesEnCours: Covoiturage[] = [];
   covoituragesHistorique: Covoiturage[] = [];
-  selectedCovoit: Covoiturage = new Covoiturage("",new Collegue("","",""), new Annonce("","","","","","",new Vehicule("","",""),new Collegue("","","")));
+  selectedCovoit: Covoiturage = new Covoiturage("",new Collegue("","",""), new Annonce("", "","","","","","",new Vehicule("","",""),new Collegue("","","")));
 
   constructor(private _postSrv: CovoiturageService, private _activateRoute:ActivatedRoute) {
 

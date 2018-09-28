@@ -5,7 +5,8 @@ import { Collegue } from "./collegue";
 export class Annonce {
 
     id: number;
-    horaireDeDepart: Date;
+    jourDeDepart: string;
+    heureDeDepart: string;
     lieuDeDepart: string;
     lieuDeDestination: string;
     nombreDeVoyageurs: number;
@@ -13,9 +14,10 @@ export class Annonce {
     vehicule: Vehicule;
     collegue: Collegue;
 
-    constructor(id,horaireDeDepart, lieuDeDepart, lieuDeDestination, nombreDeVoyageurs, vehicule, collegue, nombreDePlacesDisponibles) {
+    constructor(id, jourDeDepart, heureDeDepart, lieuDeDepart, lieuDeDestination, nombreDeVoyageurs, vehicule, collegue, nombreDePlacesDisponibles) {
         this.id = id;
-        this.horaireDeDepart = horaireDeDepart;
+        this.jourDeDepart = jourDeDepart;
+        this.heureDeDepart = heureDeDepart;
         this.lieuDeDepart = lieuDeDepart;
         this.lieuDeDestination = lieuDeDestination;
         this.nombreDeVoyageurs = nombreDeVoyageurs;
@@ -26,8 +28,9 @@ export class Annonce {
     }
 
     static fromAnnonceServeur(annonceServeur: any): Annonce {
-        const annonceIhm = new Annonce("","","","","","","","");
-        annonceIhm.horaireDeDepart = annonceServeur.horaireDeDepart;
+        const annonceIhm = new Annonce("","","","","","","","", "");
+        annonceIhm.jourDeDepart = annonceServeur.jourDeDepart;
+        annonceIhm.heureDeDepart = annonceServeur.heureDeDepart;
         annonceIhm.lieuDeDepart = annonceServeur.lieuDeDepart;
         annonceIhm.lieuDeDestination = annonceServeur.lieuDeDestination;
         annonceIhm.nombreDeVoyageurs = annonceServeur.nombreDeVoyageurs;
