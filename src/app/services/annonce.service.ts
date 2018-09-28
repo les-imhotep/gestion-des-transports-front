@@ -25,7 +25,8 @@ export class AnnonceService {
     .get(URL_BACKEND+"collaborateur/annonces/encours")
     .pipe(
       map((data: any[]) => data.map(annonce => new Annonce(annonce.id,
-          annonce.horaireDeDepart,
+          annonce.jourDeDepart,
+          annonce.heureDeDepart,
           annonce.lieuDeDepart,
           annonce.lieuDeDestination,
           annonce.nombreDeVoyageurs,
@@ -41,7 +42,8 @@ export class AnnonceService {
     .get(URL_BACKEND+"collaborateur/annonces/historique")
     .pipe(
       map((data: any[]) => data.map(annonce => new Annonce(annonce.id,
-        annonce.horaireDeDepart,
+        annonce.jourDeDepart,
+        annonce.heureDeDepart,
         annonce.lieuDeDepart,
         annonce.lieuDeDestination,
         annonce.nombreDeVoyageurs,
@@ -66,7 +68,7 @@ export class AnnonceService {
 
   publierAnnonce(annonce: Annonce): Observable<Annonce> {
     return this._http
-        .post(URL_BACKEND + "/nouveau", annonce, OPTION_HTTP)
+        .post(URL_BACKEND + "collaborateur/annonces/creer", annonce, OPTION_HTTP)
         .pipe(
           map(((formServeur:any) =>Annonce.fromAnnonceServeur(formServeur)
         )
