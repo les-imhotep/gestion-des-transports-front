@@ -15,7 +15,7 @@ export class ReservationCovoiturageComponent implements OnInit {
   depart: string = "";
   destination: string = "";
   covoituragesEnCours: Covoiturage[] = [];
-  selectedCovoit: Covoiturage = new Covoiturage("",new Collegue("","",""), new Annonce("","","","","","",new Vehicule("","",""),new Collegue("","","")));
+  selectedCovoit: Covoiturage = new Covoiturage("",new Collegue("","",""), new Annonce("", "","","","","","",new Vehicule("","",""),new Collegue("","","")));
 
   constructor(private _postSrv: CovoiturageService) { }
 
