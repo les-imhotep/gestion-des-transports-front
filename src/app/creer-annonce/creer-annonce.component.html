@@ -1,6 +1,6 @@
 <app-menu-collaborateur></app-menu-collaborateur>
 
-<form class="text-center border border-light p-5" (ngSubmit)="submit()" #form="ngForm" name="monFormulaire">
+<form class="text-center border border-light p-5" #form="ngForm" name="monFormulaire">
 
   <p class="h2 mb-4">Publier une annonce</p> 
 
@@ -33,19 +33,81 @@
       <div *ngIf="modele.invalid && modele.touched "> Le modèle est requis</div>
   </div>
 
-  <div class="form-group">
-      <input type="text" #nbPlaceDispo="ngModel" [(ngModel)]="annonce.nombreDePlacesDisponibles" name="nbPlaceDispo" class="form-control mb-4" placeholder="nombre de places disponibles" required>
-      <div *ngIf="nbPlaceDispo.invalid && nbPlaceDispo.touched "> Le nombre de places disponibles est requis</div>
+  <div class="form-group row">
+        <div class="col-xs-2">
+        
+        </div>
+        <div class="col-xs-2">
+        
+        </div>
   </div>
 
-  <p class="h4 mb-4">Date & Heures</p> 
-  <input type="date" #jourDeDepart="ngModel" [(ngModel)]="annonce.jourDeDepart" name="jourDeDepart"class="form-control mb-4" required>
-  <input type="time" #heureDeDepart="ngModel" [(ngModel)]="annonce.heureDeDepart" name="heureDeDepart" class="form-control mb-4" required>
+  <div class="form-group">
+      <input type="number" #nbPlaceVehicule="ngModel" [(ngModel)]="annonce.vehicule.nombreDePlace" name="nbPlaceVehicule" class="form-control mb-4" placeholder="nombre total de sièges" required>
+      <input type="text" #nbPlaceDispo="ngModel" [(ngModel)]="annonce.nombreDePlacesDisponibles" name="nbPlaceDispo" class="form-control mb-4" placeholder="nombre de places disponibles" required>
+      <div *ngIf="nbPlaceDispo.invalid && nbPlaceDispo.touched "> Le nombre de sièges du véhicule est requis</div>
+      <div *ngIf="nbPlaceDispo.invalid && nbPlaceDispo.touched "> Le nombre de places disponibles est requis</div>
+  </div>
+  <!-- 
+
+    <div class="form-group row">
+  <div class="col-xs-2">
+    <label for="ex1">col-xs-2</label>
+    <input class="form-control" id="ex1" type="text">
+  </div>
+  <div class="col-xs-3">
+    <label for="ex2">col-xs-3</label>
+    <input class="form-control" id="ex2" type="text">
+  </div>
+
+  -->
+
+  <p class="h4 mb-4">Date & Heures</p>
+
+  <div class="form-group">
+    <input type="date" #jourDeDepart="ngModel" [(ngModel)]="annonce.jourDeDepart" name="jourDeDepart"class="form-control mb-4" required>
+    <div *ngIf="jourDeDepart.invalid && jourDeDepart.touched "> Un jour de départ est requis</div>
+  </div>
+
+  <div class="form-group">
+    <input type="time" #heureDeDepart="ngModel" [(ngModel)]="annonce.heureDeDepart" name="heureDeDepart" class="form-control mb-4" required>
+     <div *ngIf="heureDeDepart.invalid && heureDeDepart.touched "> Une heure de départ est requise</div>
+  </div>
   
-  <button mdbBtn color="info" block="true" class="btn btn-info btn-block" type="submit" [disabled]="form.invalid">Ajouter</button>
+  
+  <button mdbBtn color="info" block="true" class="btn btn-info btn-block" [disabled]="form.invalid" (click)="select(annonce);basicModal.show()">Ajouter</button>
 
 </form>
   
   <div class="row" *ngIf="errMsg">
       {{errMsg}}
+  </div>
+
+<!-- *************************************** MODAL *************************************** -->
+
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+            <span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title w-100" id="myModalLabel">Détails du covoiturage</h4>
+        </div>
+        <div class="modal-body">
+          <p>Départ : {{selectedAnnonce.lieuDeDepart}}</p>
+          <p>Destination : {{selectedAnnonce.lieuDeDestination}}</p>
+          <p>Date de départ : {{selectedAnnonce.jourDeDepart}}</p>
+          <p>Heure de départ : {{selectedAnnonce.heureDeDepart}}</p>
+          <p>Immatriculation : {{selectedAnnonce.vehicule.immatriculation}}</p>
+          <p>Marque : {{selectedAnnonce.vehicule.marque}}</p>
+          <p>Modèle : {{selectedAnnonce.vehicule.modele}}</p>
+          <p>Nombre de places disponibles : {{selectedAnnonce.nombreDePlacesDisponibles}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" mdbBtn color="danger" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Annuler</button>
+          <button type="button" mdbBtn color="success" class="waves-light" aria-label="Valider" (click)="submit();ngOnInit();basicModal.hide()"mdbWavesEffect>Confirmer</button>
+        </div>
+      </div>
+    </div>
   </div>
