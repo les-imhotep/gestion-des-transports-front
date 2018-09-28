@@ -32,7 +32,8 @@ const routes: Routes = [
   { path: 'collaborateur/reservations', component: ListerCovoituragesComponent, canActivate:[StatutConnecteService]},
   { path: 'collaborateur/reservations', component: ListerReservationComponent, canActivate:[StatutConnecteService]},
   { path: 'collaborateur/reservations/creer', component: CreerReservationComponent, canActivate:[StatutConnecteService]},
-  { path: 'collaborateur/annonces/creer', component: CreerAnnonceComponent, canActivate:[StatutConnecteService]}
+  { path: 'collaborateur/reservations/creer', component: ReservationVehiculeComponent, canActivate:[StatutConnecteService]},
+  { path: 'collaborateur/annonces/creer', component: CreerAnnonceComponent, canActivate:[StatutConnecteService]},
 ];
 
 
