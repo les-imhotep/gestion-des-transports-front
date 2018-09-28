@@ -24,4 +24,16 @@ export class Annonce {
         this.nombreDePlacesDisponibles = nombreDePlacesDisponibles;
 
     }
+
+    static fromAnnonceServeur(annonceServeur: any): Annonce {
+        const annonceIhm = new Annonce("","","","","","","","");
+        annonceIhm.horaireDeDepart = annonceServeur.horaireDeDepart;
+        annonceIhm.lieuDeDepart = annonceServeur.lieuDeDepart;
+        annonceIhm.lieuDeDestination = annonceServeur.lieuDeDestination;
+        annonceIhm.nombreDeVoyageurs = annonceServeur.nombreDeVoyageurs;
+        annonceIhm.nombreDePlacesDisponibles = annonceServeur.nombreDePlacesDisponibles;
+        annonceIhm.vehicule = annonceServeur.vehicule;
+        annonceIhm.collegue = annonceServeur.collegue;
+        return annonceIhm;
+}
 }

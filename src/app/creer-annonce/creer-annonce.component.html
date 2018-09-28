@@ -1,0 +1,71 @@
+<app-menu-collaborateur></app-menu-collaborateur>
+
+<!--
+
+    <div class="form-group">
+        <label>Adresse de départ : </label>
+        <input type="text" #lieuDeDepart="ngModel" [(ngModel)]="annonce.lieuDeDepart" name="lieuDeDepart" required>
+        <div *ngIf="lieuDeDepart.invalid && lieuDeDepart.touched "> L'adresse de départ est requis</div>
+    </div>
+
+
+
+    <p>
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Ajouter</button>
+    </p>
+  </form>
+  
+  <div class="row" *ngIf="errMsg">
+      {{errMsg}}
+  </div>
+-->
+
+<form class="text-center border border-light p-5" (ngSubmit)="submit()" #form="ngForm" name="monFormulaire">
+
+  <p class="h2 mb-4">Publier une annonce</p> 
+
+  <p class="h4 mb-4">Itinéraire</p>
+
+  <div class="form-group">
+    <input type="text" #lieuDeDepart="ngModel" [(ngModel)]="annonce.lieuDeDepart" name="lieuDeDepart" class="form-control mb-4" placeholder="Adresse de départ" required>
+    <div *ngIf="lieuDeDepart.invalid && lieuDeDepart.touched "> L'adresse de départ est requise</div>
+  </div>
+  <div class="form-group">
+      <input type="text" #lieuDeDestination="ngModel" [(ngModel)]="annonce.lieuDeDestination" name="lieuDeDestination" class="form-control mb-4" placeholder="Adresse d'arrivée" required>
+      <div *ngIf="lieuDeDestination.invalid && lieuDeDestination.touched "> L'adresse d'arrivée est requise</div>
+  </div>
+
+
+  <p class="h4 mb-4">Véhicule</p>
+
+  <div class="form-group">
+      <input type="text" #immatriculation="ngModel" [(ngModel)]="annonce.vehicule.immatriculation" name="immatriculation" class="form-control mb-4" placeholder="immatriculation" required>
+      <div *ngIf="immatriculation.invalid && immatriculation.touched "> L'immatriculation est requise</div>
+  </div>
+
+  <div class="form-group">
+      <input type="text" #marque="ngModel" [(ngModel)]="annonce.vehicule.marque" name="marque" class="form-control mb-4" placeholder="marque" required>
+      <div *ngIf="marque.invalid && marque.touched "> La marque est requise</div>
+  </div>
+
+  <div class="form-group">
+      <input type="text" #modele="ngModel" [(ngModel)]="annonce.vehicule.modele" name="modele" class="form-control mb-4" placeholder="modele" required>
+      <div *ngIf="modele.invalid && modele.touched "> Le modèle est requis</div>
+  </div>
+
+  <div class="form-group">
+      <input type="text" #nbPlaceDispo="ngModel" [(ngModel)]="annonce.nombreDePlacesDisponibles" name="nbPlaceDispo" class="form-control mb-4" placeholder="nbPlaceDispo" required>
+      <div *ngIf="nbPlaceDispo.invalid && nbPlaceDispo.touched "> Le nombre de places disponibles est requis</div>
+  </div>
+
+  <p class="h4 mb-4">Date & Heures</p> 
+  <input type="date" id="dateDepart" class="form-control mb-4" required>
+  <input type="time" id="heureDepart" class="form-control mb-4" required>
+  
+  <button mdbBtn color="info" block="true" class="btn btn-info btn-block" type="submit" [disabled]="form.invalid">Ajouter</button>
+
+</form>
+  
+  <div class="row" *ngIf="errMsg">
+      {{errMsg}}
+  </div>
