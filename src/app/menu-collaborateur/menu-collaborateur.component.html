@@ -13,6 +13,10 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/collaborateur/annonces">Vos annonces</a>
       </li>
+      <!-- Menu pour le role 'ROLE_ADMINISTRATEUR'-->
+      <li class="nav-item" >
+        <a class="nav-link" routerLink="/administrateur" *ngIf="isAdmin()">Espace administrateur</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Statisques</a>
       </li>
