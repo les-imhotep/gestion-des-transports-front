@@ -13,11 +13,13 @@ import { Collegue } from '../models/collegue';
 export class CreerAnnonceComponent implements OnInit {
 
   annonce = new Annonce("","","","","","",new Vehicule("","",""), new Collegue("","",""),"");
+  selectedAnnonce: Annonce = new Annonce("", "","","","","","",new Vehicule("","",""),new Collegue("","",""));
   errMsg: string;
   constructor(private _annonceSrv: AnnonceService, private router: Router) { }
 
   ngOnInit() {
-  }
+    this.annonce = new Annonce("","","","","","",new Vehicule("","", ""), new Collegue("","",""),"");
+}
 
   submit() { 
     this._annonceSrv
@@ -31,6 +33,9 @@ export class CreerAnnonceComponent implements OnInit {
           this.errMsg = errServeur.error.text;
         }
       });
-}
+  }
+  select(annonce: Annonce) {
+    this.selectedAnnonce=annonce;
+  }
 
 }
