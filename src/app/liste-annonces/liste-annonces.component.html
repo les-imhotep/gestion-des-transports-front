@@ -15,7 +15,8 @@
       <table class="table table-bordered table-striped table-sm mt-4">
         <thead>
           <tr>
-            <th scope="col">Date / heure de départ</th>
+            <th scope="col">Date de départ</th>
+            <th scope="col">Hheure de départ</th>
             <th scope="col">Lieu de départ</th>
             <th scope="col">Lieu de destination</th>
             <th scope="col">Nombre de voyageurs</th>
@@ -25,7 +26,8 @@
 
         <tbody>
           <tr *ngFor="let ann of annoncesEnCours">
-            <td>{{ann.horaireDeDepart}}</td>
+            <td>{{ann.jourDeDepart}}</td>
+            <td>{{ann.heureDeDepart}}</td>
             <td>{{ann.lieuDeDepart}}</td>
             <td>{{ann.lieuDeDestination}}</td>
             <td>{{ann.nombreDeVoyageurs}}</td>
@@ -44,7 +46,8 @@
       <table class="table table-bordered table-striped table-sm  mt-4">
         <thead>
           <tr>
-            <th scope="col">Date / heure de départ</th>
+            <th scope="col">Date de départ</th>
+            <th scope="col">Hheure de départ</th>
             <th scope="col">Lieu de départ</th>
             <th scope="col">Lieu de destination</th>
             <th scope="col">Nombre de voyageurs</th>
@@ -53,7 +56,8 @@
 
         <tbody>
           <tr *ngFor="let ann of annoncesHistorique">
-            <td>{{ann.horaireDeDepart}}</td>
+            <td>{{ann.jourDeDepart}}</td>
+            <td>{{ann.heureDeDepart}}</td>
             <td>{{ann.lieuDeDepart}}</td>
             <td>{{ann.lieuDeDestination}}</td>
             <td>{{ann.nombreDeVoyageurs}}</td>

@@ -41,7 +41,6 @@ export class ListerCovoituragesComponent implements OnInit {
 
   select(covoit: Covoiturage) {
     this.selectedCovoit=covoit;
-    console.log(this.selectedCovoit)
   }
 
 }
