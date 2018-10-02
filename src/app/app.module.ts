@@ -15,11 +15,12 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { ListeAnnoncesComponent } from './liste-annonces/liste-annonces.component';
 import { ListerCovoituragesComponent } from './lister-covoiturages/lister-covoiturages.component';
 import { ListerReservationComponent } from './lister-reservation/lister-reservation.component';
-import { DetailsCovoiturageComponent } from './details-covoiturage/details-covoiturage.component';
 import { CreerReservationComponent } from './creer-reservation/creer-reservation.component';
 import { ReservationCovoiturageComponent } from './reservation-covoiturage/reservation-covoiturage.component';
 import { ReservationVehiculeComponent } from './reservation-vehicule/reservation-vehicule.component';
 import { CreerAnnonceComponent } from './creer-annonce/creer-annonce.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { EspaceAdminComponent } from './espace-admin/espace-admin.component';
 
 
 
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'collaborateur/reservations', component: ListerReservationComponent, canActivate:[StatutConnecteService]},
   { path: 'collaborateur/reservations/creer', component: CreerReservationComponent, canActivate:[StatutConnecteService]},
   { path: 'collaborateur/annonces/creer', component: CreerAnnonceComponent, canActivate:[StatutConnecteService]},
+  { path: 'administrateur', component: EspaceAdminComponent, canActivate:[StatutConnecteService]}
 ];
 
 
@@ -46,11 +48,12 @@ const routes: Routes = [
     ListeAnnoncesComponent,
     ListerCovoituragesComponent,
     ListerReservationComponent,
-    DetailsCovoiturageComponent,
     CreerReservationComponent,
     ReservationCovoiturageComponent,
     ReservationVehiculeComponent,
-    CreerAnnonceComponent
+    CreerAnnonceComponent,
+    FilterPipe,
+    EspaceAdminComponent
   ],
   imports: [
     BrowserModule,

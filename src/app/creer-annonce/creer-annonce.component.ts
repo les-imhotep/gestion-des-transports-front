@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AnnonceService } from '../services/annonce.service';
 import { Annonce } from '../models/annonce';
 import { Router } from '@angular/router';
+import { Vehicule } from '../models/vehicule';
+import { Collegue } from '../models/collegue';
 
 @Component({
   selector: 'app-creer-annonce',
@@ -10,18 +12,20 @@ import { Router } from '@angular/router';
 })
 export class CreerAnnonceComponent implements OnInit {
 
-  annonce = new Annonce("","","","","","","","");
+  annonce = new Annonce("","","","","","",new Vehicule("","","",""), new Collegue("","",""),"");
+  selectedAnnonce: Annonce = new Annonce("", "","","","","","",new Vehicule("","","",""),new Collegue("","",""));
   errMsg: string;
   constructor(private _annonceSrv: AnnonceService, private router: Router) { }
 
   ngOnInit() {
-  }
+    this.annonce = new Annonce("","","","","","",new Vehicule("","","", ""), new Collegue("","",""),"");
+}
 
-  submit() {
+  submit() { 
     this._annonceSrv
       .publierAnnonce(this.annonce)
       .subscribe(
-        () => this.annonce = new Annonce("","","","","","","",""),
+        () => this.annonce = new Annonce("","","","","","","","",""),
         errServeur => {
           if (errServeur.error.message) {
           this.errMsg = errServeur.error.message;
@@ -29,6 +33,9 @@ export class CreerAnnonceComponent implements OnInit {
           this.errMsg = errServeur.error.text;
         }
       });
-}
+  }
+  select(annonce: Annonce) {
+    this.selectedAnnonce=annonce;
+  }
 
 }
