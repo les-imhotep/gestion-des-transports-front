@@ -19,6 +19,7 @@ import { CreerReservationComponent } from './creer-reservation/creer-reservation
 import { ReservationCovoiturageComponent } from './reservation-covoiturage/reservation-covoiturage.component';
 import { ReservationVehiculeComponent } from './reservation-vehicule/reservation-vehicule.component';
 import { CreerAnnonceComponent } from './creer-annonce/creer-annonce.component';
+import { EspaceAdminComponent } from './espace-admin/espace-admin.component';
 
 
 
@@ -31,7 +32,8 @@ const routes: Routes = [
   { path: 'collaborateur/reservations', component: ListerCovoituragesComponent, canActivate:[StatutConnecteService]},
   { path: 'collaborateur/reservations', component: ListerReservationComponent, canActivate:[StatutConnecteService]},
   { path: 'collaborateur/reservations/creer', component: CreerReservationComponent, canActivate:[StatutConnecteService]},
-  { path: 'collaborateur/annonces/creer', component: CreerAnnonceComponent, canActivate:[StatutConnecteService]}
+  { path: 'collaborateur/annonces/creer', component: CreerAnnonceComponent, canActivate:[StatutConnecteService]},
+  { path: 'administrateur', component: EspaceAdminComponent, canActivate:[StatutConnecteService]}
 ];
 
 
@@ -48,7 +50,8 @@ const routes: Routes = [
     CreerReservationComponent,
     ReservationCovoiturageComponent,
     ReservationVehiculeComponent,
-    CreerAnnonceComponent
+    CreerAnnonceComponent,
+    EspaceAdminComponent
   ],
   imports: [
     BrowserModule,
