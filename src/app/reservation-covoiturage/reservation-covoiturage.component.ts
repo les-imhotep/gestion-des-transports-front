@@ -18,8 +18,8 @@ export class ReservationCovoiturageComponent implements OnInit {
   dateDepart: string = "";
   heureDepart: string = "";
   annoncesEnCours: Annonce[] = [];
-  annonce : Annonce = new Annonce("","","","","","",new Vehicule("","",""),new Collegue("","",""),"");
-  selectedAnnonce: Annonce = new Annonce("","","","","","",new Vehicule("","",""),new Collegue("","",""),"");
+  annonce : Annonce = new Annonce("","","","","","",new Vehicule("","","",""),new Collegue("","",""),"");
+  selectedAnnonce: Annonce = new Annonce("","","","","","",new Vehicule("","","",""),new Collegue("","",""),"");
 
   constructor(private _postAnnSrv: AnnonceService,private _postCovSrv: CovoiturageService) { }
 
