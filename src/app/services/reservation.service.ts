@@ -21,13 +21,13 @@ export class ReservationService {
 
   constructor(private _http: HttpClient) { }
 
-  reserverUnVehicule(): Observable<Vehicule> {
+  listerVehiculeDeSociete(): Observable<Vehicule[]> {
     return this._http
       .get(URL_BASE + "collaborateur/reservations/creer")
       .pipe(
-        map((vehicule: any) =>  new Vehicule(vehicule.immatriculation, vehicule.marque, vehicule.modele))
+        map((data: any[]) => data.map(vehicule =>  new Vehicule(vehicule.photo, vehicule.immatriculation, vehicule.marque, vehicule.modele))
         )
-      ;
+      )
 
   }
 

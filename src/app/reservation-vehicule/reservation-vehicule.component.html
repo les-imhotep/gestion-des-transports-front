@@ -1,15 +1,15 @@
 <div class="row">
   <div class="col">
-    <h5>Date / heure de réservation</h5>
-    <input type="date" id="dateDepart" class="mb-4" required>
+    Date / heure de réservation
+    <input type="date" id="dateDepart" class="ml-4 mb-4" required>
     <input type="time" id="heureDepart" class="mb-4 ml-3" required>
   </div>
 </div>
 
 <div class="row">
   <div class="col">
-    <h5>Date / heure de retour</h5>
-    <input type="date" id="dateDepart" class="mb-4" required>
+    Date / heure de retour
+    <input type="date" id="dateDepart" class="ml-4 mb-4" required>
     <input type="time" id="heureDepart" class="mb-4 ml-3" required>
   </div>
 </div>
@@ -17,43 +17,51 @@
 <div class="mb-4">
 
   <mdb-carousel [isControls]="true" [keyboard]="true" [interval]="0" [animation]="'slide'">
-    
-    <mdb-carousel-item>
-      <div class="view w-100">
-        <img class="d-block w-100" src="http://car-from-uk.com/ebay/carphotos/full/ebay681106.jpg" alt="First slide">
-        <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
-      </div>
-      <div class="carousel-caption">
-        <h3 class="h3-responsive">{{vehicule.immatriculation}}</h3>
-        <p>{{vehicule.marque}} - {{vehicule.modele}}</p>
-      </div>
-    </mdb-carousel-item>
- 
 
-    <mdb-carousel-item>
-      <div class="view w-100">
-        <img class="d-block w-100" src="https://motor.elpais.com/wp-content/uploads/2017/06/26144725/peugeot-3008.jpg"
-          alt="Second slide">
-        <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
-      </div>
-      <div class="carousel-caption">
-        <h3 class="h3-responsive">Strong mask</h3>
-        <p>Secondary text</p>
-      </div>
-    </mdb-carousel-item>
+    <div *ngFor="let vehicule of vehiculeDeSociete">
 
+      <mdb-carousel-item>
+        <div class="view w-100">
+          <img class="d-block w-100" src="{{vehicule.photo}}" alt="Second slide">
+          <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
+        </div>
+        <div class="carousel-caption">
+          <h3 class="h3-responsive">{{vehicule.immatriculation}}</h3>
+          <p>{{vehicule.marque}} - {{vehicule.modele}}</p>
+        </div>
 
-    <mdb-carousel-item>
-      <div class="view w-100">
-        <img class="d-block w-100" src="http://photos-voitures.fiches-auto.fr/NORMAL_suite/323-spark-mfg-4-14.jpg" alt="Third slide">
-        <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
-      </div>
-      <div class="carousel-caption">
-        <h3 class="h3-responsive">Slight mask</h3>
-        <p>Third text</p>
-      </div>
-    </mdb-carousel-item>
+      </mdb-carousel-item>
 
+    </div>
   </mdb-carousel>
 
+</div>
+
+<button type="button" class="btn btn-outline-primary btn-sm" (click)="basicModal.show()">Réserver</button>
+
+<!-- *************************************** MODAL *************************************** -->
+
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Réservation d'un véhicle</h4>
+      </div>
+      <div class="modal-body">
+        <p>Date/heure de réservation :</p>
+        <p>Date/heure retour :</p>
+        <p>Immatriculation :</p>
+        <p>Marque :</p>
+        <p>Modèle :</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="basicModal.hide()"
+          mdbWavesEffect>Fermer</button>
+      </div>
+    </div>
+  </div>
 </div>

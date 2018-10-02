@@ -10,16 +10,17 @@ import { ReservationService } from '../services/reservation.service';
 })
 export class ReservationVehiculeComponent implements OnInit {
 
-  vehicule: Vehicule = new Vehicule("", "", "");
+  //vehicule: Vehicule = new Vehicule("", "", "");
+  vehiculeDeSociete: Vehicule[] = [];
 
-  constructor(private route: ActivatedRoute, private _postSrv: ReservationService) { }
+  constructor(private route: ActivatedRoute, private _postSrv: ReservationService) {}
 
   ngOnInit() {
     this._postSrv
-      .reserverUnVehicule()
+      .listerVehiculeDeSociete()
       .subscribe(
-        Vehicule => this.vehicule = Vehicule
-      );
+        Vehicule => this.vehiculeDeSociete = Vehicule);
+      ;
   }
 
 }
