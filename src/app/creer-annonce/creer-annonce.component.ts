@@ -20,7 +20,6 @@ export class CreerAnnonceComponent implements OnInit {
   }
 
   submit() { 
-    console.log(this.annonce)
     this._annonceSrv
       .publierAnnonce(this.annonce)
       .subscribe(
