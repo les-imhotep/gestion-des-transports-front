@@ -8,12 +8,15 @@ import { Covoiturage } from '../models/covoiturage';
 export class FilterPipe implements PipeTransform {
   transform(items: Covoiturage[], depart: string, destination: string, dateDepart: string, heureDepart: string): Covoiturage[] {
     console.log(dateDepart+"T"+heureDepart+":00")
-    if(!depart && !destination){}
+    if(!depart && !destination && !dateDepart && !heureDepart){}
     else if (!destination) {
       return items.filter(it => {
-        if(it.annonce.horaireDeDepart.toLowerCase().includes(depart.toLowerCase())){
-
-        }else{
+          return it.annonce.lieuDeDepart.toLowerCase().includes(depart.toLowerCase());
+      });
+    }
+    else if (!dateDepart && !heureDepart) {
+      return items.filter(it => {
+        if(it.annonce.lieuDeDestination.toLowerCase().includes(destination.toLowerCase())){
           return it.annonce.lieuDeDepart.toLowerCase().includes(depart.toLowerCase());
         }
       });
@@ -21,7 +24,9 @@ export class FilterPipe implements PipeTransform {
     else {
       return items.filter(it => {
         if(it.annonce.lieuDeDestination.toLowerCase().includes(destination.toLowerCase())){
-          return it.annonce.lieuDeDepart.toLowerCase().includes(depart.toLowerCase());
+          if(it.annonce.jourDeDepart.toLowerCase().includes(dateDepart.toLowerCase())){
+            return it.annonce.lieuDeDepart.toLowerCase().includes(depart.toLowerCase());
+          }
         }
       });
     }
