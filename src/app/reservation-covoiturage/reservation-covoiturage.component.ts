@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Covoiturage } from '../models/covoiturage';
 import { Collegue } from '../models/collegue';
 import { Annonce } from '../models/annonce';
 import { Vehicule } from '../models/vehicule';
