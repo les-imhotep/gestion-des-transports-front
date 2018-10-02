@@ -19,6 +19,7 @@ import { CreerReservationComponent } from './creer-reservation/creer-reservation
 import { ReservationCovoiturageComponent } from './reservation-covoiturage/reservation-covoiturage.component';
 import { ReservationVehiculeComponent } from './reservation-vehicule/reservation-vehicule.component';
 import { CreerAnnonceComponent } from './creer-annonce/creer-annonce.component';
+import { FilterPipe } from './pipes/filter.pipe';
 import { EspaceAdminComponent } from './espace-admin/espace-admin.component';
 
 
@@ -51,6 +52,7 @@ const routes: Routes = [
     ReservationCovoiturageComponent,
     ReservationVehiculeComponent,
     CreerAnnonceComponent,
+    FilterPipe,
     EspaceAdminComponent
   ],
   imports: [
