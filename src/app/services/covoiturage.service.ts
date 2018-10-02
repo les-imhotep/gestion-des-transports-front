@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from "@angular/common/http";
 import { Observable, Subject } from 'rxjs';
 import { Covoiturage } from '../models/covoiturage';
+import { Annonce } from '../models/annonce';
 import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators';
 
-const URL_BASE = environment.baseUrl;
+const URL_BACKEND = environment.baseUrl;
+const OPTION_HTTP = { headers: new HttpHeaders({ "Content-Type": "application/json" }) };
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +25,7 @@ export class CovoiturageService {
 
   listerCovoituragesEnCours(): Observable<Covoiturage[]>{
     return this._http
-    .get(URL_BASE+"collaborateur/reservationsCovoiturage/encours")
+    .get(URL_BACKEND+"collaborateur/reservationsCovoiturage/encours")
     .pipe(
       map((data: any[]) => data.map(covoiturage => new Covoiturage(covoiturage.id,covoiturage.collegue, covoiturage.annonce)))
     )
@@ -31,7 +33,7 @@ export class CovoiturageService {
 
   listerCovoituragesHistorique(): Observable<Covoiturage[]>{
     return this._http
-    .get(URL_BASE+"collaborateur/reservationsCovoiturage/historique")
+    .get(URL_BACKEND+"collaborateur/reservationsCovoiturage/historique")
     .pipe(
       map((data: any[]) => data.map(covoiturage => new Covoiturage(covoiturage.id,covoiturage.collegue, covoiturage.annonce)))
     )
@@ -39,21 +41,17 @@ export class CovoiturageService {
 
   supprimerCovoiturage(id: number): Observable<Covoiturage>{
     let resultat;
-    const httpOptions = {
-      headers: new HttpHeaders({
-        "Content-Type": "application/json"
-      })
-    };
     console.log(id)
-    resultat = this._http.post(URL_BASE+"collaborateur/reservationsCovoiturage/"+id, httpOptions);
+    resultat = this._http.post(URL_BACKEND+"collaborateur/reservationsCovoiturage/"+id, OPTION_HTTP);
     return resultat;
   }
 
-  listerAllCovoituragesEnCours(): Observable<Covoiturage[]>{
+  publierCovoiturage(annonce: Annonce): Observable<Annonce> {
     return this._http
-    .get(URL_BASE+"collaborateur/reservationsCovoiturage")
-    .pipe(
-      map((data: any[]) => data.map(covoiturage => new Covoiturage(covoiturage.id,covoiturage.collegue, covoiturage.annonce)))
-    )
+      .post(URL_BACKEND + "collaborateur/reservationsCovoiturage/creer", annonce, OPTION_HTTP)
+      .pipe(
+        map(((formServeur: any) => Annonce.fromAnnonceServeur(formServeur))
+        )
+      );
   }
 }

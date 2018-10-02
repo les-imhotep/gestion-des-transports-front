@@ -32,21 +32,42 @@
   </thead>
 
   <tbody>
-      <tr *ngFor="let covoit of covoituragesEnCours | filter : depart : destination : dateDepart : heureDepart">
-        <td>{{covoit.annonce.horaireDeDepart}}</td>
-        <td>{{covoit.annonce.lieuDeDepart}}</td>
-        <td>{{covoit.annonce.lieuDeDestination}}</td>
-        <td>{{covoit.annonce.vehicule.marque}} {{covoit.annonce.vehicule.modele}}</td>
-        <td>{{covoit.annonce.collegue.nom}} {{covoit.annonce.collegue.prenom}}</td>
-        <td>{{covoit.annonce.nombreDePlacesDisponibles}}</td>
-        <td>{{covoit.annonce | json}}</td>
+      <tr *ngFor="let annonce of annoncesEnCours | filter : depart : destination : dateDepart : heureDepart">
+        <td>{{annonce.jourDeDepart}} {{annonce.heureDeDepart}}</td>
+        <td>{{annonce.lieuDeDepart}}</td>
+        <td>{{annonce.lieuDeDestination}}</td>
+        <td>{{annonce.vehicule.marque}} {{annonce.vehicule.modele}}</td>
+        <td>{{annonce.collegue.nom}} {{annonce.collegue.prenom}}</td>
+        <td>{{annonce.nombreDePlacesDisponibles}}</td>
         <td>
-          <button type="button" class="btn btn-outline-danger btn-sm">Réserver</button>
+          <button type="button" class="btn btn-outline-danger btn-sm" (click)="detail(annonce);basicModal.show()">Réserver</button>
         </td>
       </tr>
   </tbody>
 </table>
 
-<div class="row" *ngIf="errMsg">
-  {{errMsg}}
+<!-- *************************************** MODAL *************************************** -->
+
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Détails du covoiturage</h4>
+      </div>
+      <div class="modal-body">
+        <p>Départ : {{selectedAnnonce.lieuDeDepart}}</p>
+        <p>Destination : {{selectedAnnonce.lieuDeDestination}}</p>
+        <p>Date de départ : {{selectedAnnonce.jourDeDepart}} {{selectedAnnonce.heureDeDepart}}</p>
+        <p>Véhicule : {{selectedAnnonce.vehicule.marque}} {{selectedAnnonce.vehicule.modele}}</p>
+        <p>Chauffeur : {{selectedAnnonce.collegue.nom}} </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Annuler</button>
+        <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="reserver(selectedAnnonce)" mdbWavesEffect>Confirmer</button>
+      </div>
+    </div>
+  </div>
 </div>
