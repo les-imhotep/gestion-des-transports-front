@@ -4,6 +4,8 @@ import { Annonce } from '../models/annonce';
 import { Vehicule } from '../models/vehicule';
 import { AnnonceService } from '../services/annonce.service';
 import { CovoiturageService } from '../services/covoiturage.service';
+import { Observable } from "rxjs/internal/Observable";
+import { AuthService } from "../auth/auth.service";
 
 @Component({
   selector: 'app-reservation-covoiturage',
