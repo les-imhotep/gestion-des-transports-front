@@ -1,20 +1,19 @@
 import { Vehicule } from "./vehicule";
-import { Collegue } from "./collegue";
 
 export class Reservation {
 
     id: number;
-    vehicule: Vehicule;
-    horaireDepart: Date;
-    horaireArrivee: Date;
+    vehiculeSoc: Vehicule;
+    depart: Date;
+    arrive: Date;
 
 
-    constructor(id, vehicule, horaireDepart, horaireArrivee) {
+    constructor(id, vehiculeSoc, depart, arrive) {
         
         this.id = id;
-        this.vehicule = vehicule;
-        this.horaireDepart = horaireDepart;
-        this.horaireArrivee = horaireArrivee;
+        this.vehiculeSoc = vehiculeSoc;
+        this.depart = depart;
+        this.arrive = arrive;
         
     }
 }

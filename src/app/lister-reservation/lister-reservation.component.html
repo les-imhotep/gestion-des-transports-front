@@ -15,11 +15,11 @@
 
         <tbody>
           <tr *ngFor="let resa of reservationEnCours">
-            <td>{{resa.horaireDepart}}</td>
-            <td>{{resa.horaireArrivee}}</td>
-            <td>{{resa.vehicule.immatriculation}}</td>
-            <td>{{resa.vehicule.marque}}</td>
-            <td>{{resa.vehicule.modele}}</td>
+            <td>{{resa.depart}}</td>
+            <td>{{resa.arrive}}</td>
+            <td>{{resa.vehiculeSoc.immatriculation}}</td>
+            <td>{{resa.vehiculeSoc.marque}}</td>
+            <td>{{resa.vehiculeSoc.modele}}</td>
             <td>
               <button type="button" class="btn btn-outline-danger btn-sm" (click)="supprimer(resa.id)">Supprimer</button>
             </td>
@@ -47,11 +47,11 @@
 
         <tbody>
           <tr *ngFor="let resa of reservationHistorique">
-              <td>{{resa.horaireDepart}}</td>
-              <td>{{resa.horaireArrivee}}</td>
-              <td>{{resa.vehicule.immatriculation}}</td>
-              <td>{{resa.vehicule.marque}}</td>
-              <td>{{resa.vehicule.modele}}</td>
+              <td>{{resa.depart}}</td>
+              <td>{{resa.arrive}}</td>
+              <td>{{resa.vehiculeSoc.immatriculation}}</td>
+              <td>{{resa.vehiculeSoc.marque}}</td>
+              <td>{{resa.vehiculeSoc.modele}}</td>
           </tr>
         </tbody>
       </table>
