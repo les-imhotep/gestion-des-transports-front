@@ -1,6 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Annonce } from '../models/annonce';
 
+
 @Pipe({
   name: 'filter'
 })

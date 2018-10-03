@@ -32,23 +32,26 @@
   </thead>
 
   <tbody>
-      <tr *ngFor="let annonce of annoncesEnCours | filter : depart : destination : dateDepart : heureDepart">
-        <td>{{annonce.jourDeDepart}} {{annonce.heureDeDepart}}</td>
-        <td>{{annonce.lieuDeDepart}}</td>
-        <td>{{annonce.lieuDeDestination}}</td>
-        <td>{{annonce.vehicule.marque}} {{annonce.vehicule.modele}}</td>
-        <td>{{annonce.collegue.nom}} {{annonce.collegue.prenom}}</td>
-        <td>{{annonce.nombreDePlacesDisponibles}}</td>
-        <td>
+    <tr *ngFor="let annonce of annoncesEnCours | filter : depart : destination : dateDepart : heureDepart">
+      <td>{{annonce.jourDeDepart}} {{annonce.heureDeDepart}}</td>
+      <td>{{annonce.lieuDeDepart}}</td>
+      <td>{{annonce.lieuDeDestination}}</td>
+      <td>{{annonce.vehicule.marque}} {{annonce.vehicule.modele}}</td>
+      <td>{{annonce.collegue.nom}} {{annonce.collegue.prenom}}</td>
+      <td>{{annonce.nombreDePlacesDisponibles}}</td>
+      <td>
+        <div *ngIf="annonce.nombreDePlacesDisponibles>0">
           <button type="button" class="btn btn-outline-danger btn-sm" (click)="detail(annonce);basicModal.show()">Réserver</button>
-        </td>
-      </tr>
+        </div>
+      </td>
+    </tr>
   </tbody>
 </table>
 
 <!-- *************************************** MODAL *************************************** -->
 
-<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -65,8 +68,10 @@
         <p>Chauffeur : {{selectedAnnonce.collegue.nom}} </p>
       </div>
       <div class="modal-footer">
-        <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Annuler</button>
-        <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="reserver(selectedAnnonce)" mdbWavesEffect>Confirmer</button>
+        <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="basicModal.hide()"
+          mdbWavesEffect>Annuler</button>
+        <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="reserver(selectedAnnonce)"
+          mdbWavesEffect>Confirmer</button>
       </div>
     </div>
   </div>
