@@ -1,16 +1,16 @@
-<div class="row">
+<div class="row mt-5">
   <div class="col">
     Date / heure de réservation
-    <input type="date" id="dateDepart" class="ml-4 mb-4" required>
-    <input type="time" id="heureDepart" class="mb-4 ml-3" required>
+    <input type="date" [(ngModel)]="dateDeDepart" id="dateDepart" class="ml-4 mb-4" required>
+    <input type="time" [(ngModel)]="heureDeDepart" id="heureDepart" class="mb-4 ml-3" required>
   </div>
 </div>
 
 <div class="row">
   <div class="col">
     Date / heure de retour
-    <input type="date" id="dateDepart" class="ml-4 mb-4" required>
-    <input type="time" id="heureDepart" class="mb-4 ml-3" required>
+    <input type="date" [(ngModel)]="dateDeRetour" id="dateRetour" class="ml-4 mb-4" required>
+    <input type="time" [(ngModel)]="heureDeRetour" id="heureRetour" class="mb-4 ml-3" required>
   </div>
 </div>
 
@@ -25,21 +25,26 @@
           <img class="d-block w-100" src="{{vehicule.photo}}" alt="Second slide">
           <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
         </div>
-        <div class="carousel-caption">
+        <div class="carousel-caption text-white bg-dark">
           <h3 class="h3-responsive">{{vehicule.immatriculation}}</h3>
           <p>{{vehicule.marque}} - {{vehicule.modele}}</p>
+          <button type="button" class="btn btn-outline-primary btn-sm" (click)="select(vehicule);basicModal.show()">Réserver</button>
         </div>
-
       </mdb-carousel-item>
-
+      
     </div>
+  
   </mdb-carousel>
 
 </div>
 
-<button type="button" class="btn btn-outline-primary btn-sm" (click)="basicModal.show()">Réserver</button>
+
+
+
 
 <!-- *************************************** MODAL *************************************** -->
+
+
 
 <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
   aria-hidden="true">
@@ -52,15 +57,15 @@
         <h4 class="modal-title w-100" id="myModalLabel">Réservation d'un véhicle</h4>
       </div>
       <div class="modal-body">
-        <p>Date/heure de réservation :</p>
-        <p>Date/heure retour :</p>
-        <p>Immatriculation :</p>
-        <p>Marque :</p>
-        <p>Modèle :</p>
+        <p>Date/heure de réservation : {{dateDeDepart}} - {{heureDeDepart}}</p>
+        <p>Date/heure retour : {{dateDeRetour}} - {{heureDeRetour}}</p>
+        <p>Immatriculation : {{selectedReservation.vehiculeSoc.immatriculation}}</p>
+        <p>Marque : {{selectedReservation.vehiculeSoc.marque}}</p>
+        <p>Modèle : {{selectedReservation.vehiculeSoc.modele}}</p>
       </div>
       <div class="modal-footer">
-        <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="basicModal.hide()"
-          mdbWavesEffect>Fermer</button>
+          <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Annuler</button>
+        <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="reserverVehicule(selectedReservation)" mdbWavesEffect>Confirmer</button>
       </div>
     </div>
   </div>
