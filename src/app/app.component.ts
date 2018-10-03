@@ -9,17 +9,7 @@ import { Collegue } from "./auth/auth.domains";
  */
 @Component({
   selector: 'app-root',
-  template: `
-    <div>
-    
-      <div *ngIf="!(collegueConnecte | async).estAnonyme()">
-        <span>{{(collegueConnecte | async).email}}</span>
-        <span>({{(collegueConnecte | async).roles}})</span>
-        <!-- <a  class="btn btn-danger" (click)="seDeconnecter()">Se déconnecter</a> -->
-      </div>
-    </div>
-    <router-outlet></router-outlet>
-  `,
+  template: `<router-outlet></router-outlet>`,
   styles: []
 })
 export class AppComponent implements OnInit {
@@ -29,15 +19,13 @@ export class AppComponent implements OnInit {
   constructor(private _authSrv: AuthService, private _router: Router) {
 
   }
-
-  /**
-   * Action déconnecter collègue.
-   */
+  /*
   seDeconnecter() {
     this._authSrv.seDeconnecter().subscribe(
       value => this._router.navigate(['/auth'])
     );
   }
+  */
 
   /**
    * A l'initialisation, le composant s'abonne au flux du collègue courant connecté.

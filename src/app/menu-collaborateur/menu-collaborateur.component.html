@@ -20,12 +20,17 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Statisques</a>
       </li>
+      <li class="nav-item">
+        <a  class="btn btn-danger right" (click)="seDeconnecter()">Se déconnecter</a>
+      </li>
     </ul>
-  </div>
 
-  <div *ngIf="!(collegueConnecte | async).estAnonyme()">
-    <span>{{(collegueConnecte | async).email}}</span>
-    <span>({{(collegueConnecte | async).roles}})</span>
-     <a  class="btn btn-danger" (click)="seDeconnecter()">Se déconnecter</a>
+    <!-- <div *ngIf="!(collegueConnecte | async).estAnonyme()">
+      <span>{{(collegueConnecte | async).email}}</span>
+      <span>({{(collegueConnecte | async).roles}})</span>
+       <a  class="btn btn-danger" (click)="seDeconnecter()">Se déconnecter</a>
+    </div> -->
+
+
   </div>
 </nav>

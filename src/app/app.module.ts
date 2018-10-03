@@ -21,6 +21,7 @@ import { ReservationVehiculeComponent } from './reservation-vehicule/reservation
 import { CreerAnnonceComponent } from './creer-annonce/creer-annonce.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { EspaceAdminComponent } from './espace-admin/espace-admin.component';
+import { BandeauComponent } from './bandeau/bandeau.component';
 
 
 
@@ -53,7 +54,8 @@ const routes: Routes = [
     ReservationVehiculeComponent,
     CreerAnnonceComponent,
     FilterPipe,
-    EspaceAdminComponent
+    EspaceAdminComponent,
+    BandeauComponent
   ],
   imports: [
     BrowserModule,
