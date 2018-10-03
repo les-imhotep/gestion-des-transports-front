@@ -29,8 +29,9 @@ const routes: Routes = [
   { path: 'accueil', component: AccueilComponent, canActivate:[StatutConnecteService]},
   { path:'tech', component: TechComponent, canActivate:[StatutConnecteService]}, // /tech accessible uniquement si connecté
   { path:'auth', component: AuthComponent},
-  { path: '', redirectTo: '/accueil', pathMatch: 'full'},
+  { path: '', redirectTo: '/collaborateur/accueil', pathMatch: 'full'},
   { path: 'collaborateur/annonces', component: ListeAnnoncesComponent, canActivate:[StatutConnecteService]},
+  { path: 'collaborateur/accueil', component: AccueilComponent, canActivate:[StatutConnecteService]},
   { path: 'collaborateur/reservations', component: ListerCovoituragesComponent, canActivate:[StatutConnecteService]},
   { path: 'collaborateur/reservations', component: ListerReservationComponent, canActivate:[StatutConnecteService]},
   { path: 'collaborateur/reservations/creer', component: CreerReservationComponent, canActivate:[StatutConnecteService]},

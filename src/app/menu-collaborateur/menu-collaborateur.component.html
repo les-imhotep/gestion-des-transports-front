@@ -1,36 +1,33 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">
-    <img src="https://cdn5.f-cdn.com/contestentries/1231270/14491831/5a5f03a179295_thumb900.jpg" width="40" height="40" alt="">
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/collaborateur/reservations">Vos réservations</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/collaborateur/annonces">Vos annonces</a>
-      </li>
-      <!-- Menu pour le role 'ROLE_ADMINISTRATEUR'-->
-      <li class="nav-item" >
-        <a class="nav-link" routerLink="/administrateur" *ngIf="isAdmin()">Espace administrateur</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Statisques</a>
-      </li>
-      <li class="nav-item">
-        <a  class="btn btn-danger right" (click)="seDeconnecter()">Se déconnecter</a>
-      </li>
-    </ul>
-
-    <!-- <div *ngIf="!(collegueConnecte | async).estAnonyme()">
-      <span>{{(collegueConnecte | async).email}}</span>
-      <span>({{(collegueConnecte | async).roles}})</span>
-       <a  class="btn btn-danger" (click)="seDeconnecter()">Se déconnecter</a>
-    </div> -->
+<section class ="barre de navigation">
 
 
-  </div>
-</nav>
+  <nav class="navbar-expand-lg navbar-light bg-light font-weight-bold">
+  
+    <!-- bouton hamburger -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+      <div class="navbar-nav mr-auto">
+  
+         <!-- Menu de base -->
+        <a class="nav-item nav-link" routerLink="/collaborateur/accueil">Accueil</a>
+        <a class="nav-item nav-link" routerLink="/collaborateur/reservations">Vos réservations</a>
+        <a class="nav-item nav-link" routerLink="/collaborateur/annonces">Vos annonces</a>
+        <!-- Menu pour le role 'ROLE_ADMINISTRATEUR'-->
+        <a class="nav-item nav-link" routerLink="/administrateur" *ngIf="isAdmin()">Espace administrateur</a>
+        
+      </div>
+  
+       <!-- Bouton de déconnexion -->
+      <div class="col-2">
+          <a  class="btn-sm btn-danger pull-right" (click)="seDeconnecter()">Se déconnecter</a>
+          </div>
+    </div>
+  </nav>
+  
+  
+  </section>

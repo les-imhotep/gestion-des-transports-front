@@ -1,12 +1,17 @@
 <div class="text-center">
-  <h2 class="h1 h1-responsive">Gestion des Transports </h2>
-</div>
 
-<div>
-  Bienvenue 
-  <div *ngIf="!(collegueConnecte | async).estAnonyme()">
-      <span>{{(collegueConnecte | async).email}}</span>
-      <span>({{(collegueConnecte | async).roles}})</span> !
+  <h1 class="h1 h1-responsive">Gestion des Transports </h1>
+  <div>
+      <img src="https://rocketleague.media.zestyio.com/logo_hot-wheels.f1cb27a519bdb5b6ed34049a5b86e317.png" width="150" height="40" alt="">
+  </div>
+  <div class="h4 h4-responsive"> 
+    <div *ngIf="!(collegueConnecte | async).estAnonyme()">
+        <span>Bienvenue </span>
+        <span>{{(collegueConnecte | async).nom}} </span>
+       <span>{{(collegueConnecte | async).prenom}}</span>
+       <span> ! </span>
+    </div>
+    <br />
   </div>
 </div>
 
