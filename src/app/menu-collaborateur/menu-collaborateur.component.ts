@@ -23,7 +23,19 @@ export class MenuCollaborateurComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Action déconnecter collègue.
+   */
+  seDeconnecter() {
+    this._authSrv.seDeconnecter().subscribe(
+      value => this._router.navigate(['/auth'])
+    );
+  }
 
+
+  /**
+   * Verifie si l'utilisateur est un admin
+   */
   isAdmin():boolean {
     
     for (let i=0; i<this.collegue.roles.length; i++){

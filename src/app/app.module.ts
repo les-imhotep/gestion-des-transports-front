@@ -21,6 +21,7 @@ import { ReservationVehiculeComponent } from './reservation-vehicule/reservation
 import { CreerAnnonceComponent } from './creer-annonce/creer-annonce.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { EspaceAdminComponent } from './espace-admin/espace-admin.component';
+import { BandeauComponent } from './bandeau/bandeau.component';
 
 
 
@@ -28,8 +29,9 @@ const routes: Routes = [
   { path: 'accueil', component: AccueilComponent, canActivate:[StatutConnecteService]},
   { path:'tech', component: TechComponent, canActivate:[StatutConnecteService]}, // /tech accessible uniquement si connecté
   { path:'auth', component: AuthComponent},
-  { path: '', redirectTo: '/accueil', pathMatch: 'full'},
+  { path: '', redirectTo: '/collaborateur/accueil', pathMatch: 'full'},
   { path: 'collaborateur/annonces', component: ListeAnnoncesComponent, canActivate:[StatutConnecteService]},
+  { path: 'collaborateur/accueil', component: AccueilComponent, canActivate:[StatutConnecteService]},
   { path: 'collaborateur/reservations', component: ListerCovoituragesComponent, canActivate:[StatutConnecteService]},
   { path: 'collaborateur/reservations', component: ListerReservationComponent, canActivate:[StatutConnecteService]},
   { path: 'collaborateur/reservations/creer', component: CreerReservationComponent, canActivate:[StatutConnecteService]},
@@ -53,7 +55,8 @@ const routes: Routes = [
     ReservationVehiculeComponent,
     CreerAnnonceComponent,
     FilterPipe,
-    EspaceAdminComponent
+    EspaceAdminComponent,
+    BandeauComponent
   ],
   imports: [
     BrowserModule,
