@@ -1,84 +1,87 @@
 <app-bandeau></app-bandeau>
 
-<div class="container mt-5">
+<h2>Vos réservations</h2>
 
-  <div class="col-12">
-    <h2>Vos réservations</h2>
-
-    <div class="float-right">
+<div class="container">
+  <div class="row">
+    <div class="float-right col-12">
       <button type="button" class="btn btn-outline-dark center-left" routerLink="/collaborateur/reservations/creer">Réserver
         un transport</button>
     </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <mdb-carousel class="carousel slide mt-5" [animation]="'slide'" [isControls]="false" [noPause]="true" [interval]="0">
+        <mdb-carousel-item>
+            <div>
+              <h5>Covoiturage en cours</h5>
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Date de départ</th>
+                    <th scope="col">Hheure de départ</th>
+                    <th scope="col">Lieu de départ</th>
+                    <th scope="col">Lieu de destination</th>
+                    <th></th>
+                  </tr>
+                </thead>
 
-    <div class="mt-5">
-      <h5>Covoiturage en cours</h5>
+                <tbody>
+                  <tr *ngFor="let covoit of covoituragesEnCours">
+                    <td>{{covoit.annonce.jourDeDepart}}</td>
+                    <td>{{covoit.annonce.heureDeDepart}}</td>
+                    <td>{{covoit.annonce.lieuDeDepart}}</td>
+                    <td>{{covoit.annonce.lieuDeDestination}}</td>
+                    <td>
+                      <button type="button" class="btn btn-outline-primary btn-sm" (click)="select(covoit);basicModal.show()">Détails</button>
+                      <button type="button" class="btn btn-outline-danger btn-sm" (click)="supprimer(covoit.id)">Supprimer</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </mdb-carousel-item>
+        <mdb-carousel-item>
+          <div>
+            <h5>Historique des covoiturages</h5>
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Date de départ</th>
+                    <th scope="col">Hheure de départ</th>
+                    <th scope="col">Lieu de départ</th>
+                    <th scope="col">Lieu de destination</th>
+                    <th scope="col"> </th>
+                  </tr>
+                </thead>
 
-      <table class="table table-bordered table-striped table-sm mt-4">
-        <thead>
-          <tr>
-            <th scope="col">Date de départ</th>
-            <th scope="col">Hheure de départ</th>
-            <th scope="col">Lieu de départ</th>
-            <th scope="col">Lieu de destination</th>
-            <th></th>
-          </tr>
-        </thead>
+                <tbody>
+                  <tr *ngFor="let covoit of covoituragesHistorique">
+                    <td>{{covoit.annonce.jourDeDepart}}</td>
+                    <td>{{covoit.annonce.heureDeDepart}}</td>
+                    <td>{{covoit.annonce.lieuDeDepart}}</td>
+                    <td>{{covoit.annonce.lieuDeDestination}}</td>
+                    <td>
+                      <button type="button" class="btn btn-outline-primary btn-sm" (click)="select(covoit);basicModal.show()">Détails</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
 
-        <tbody>
-          <tr *ngFor="let covoit of covoituragesEnCours">
-            <td>{{covoit.annonce.jourDeDepart}}</td>
-            <td>{{covoit.annonce.heureDeDepart}}</td>
-            <td>{{covoit.annonce.lieuDeDepart}}</td>
-            <td>{{covoit.annonce.lieuDeDestination}}</td>
-            <td>
-              <button type="button" class="btn btn-outline-primary btn-sm" (click)="select(covoit);basicModal.show()">Détails</button>
-              <button type="button" class="btn btn-outline-danger btn-sm" (click)="supprimer(covoit.id)">Supprimer</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-    </div>
-
-
-
-    <div class="mt-5">
-      <h5>Historique des covoiturages</h5>
-
-      <table class="table table-bordered table-striped table-sm  mt-4">
-        <thead>
-          <tr>
-            <th scope="col">Date de départ</th>
-            <th scope="col">Hheure de départ</th>
-            <th scope="col">Lieu de départ</th>
-            <th scope="col">Lieu de destination</th>
-            <th scope="col"> </th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr *ngFor="let covoit of covoituragesHistorique">
-            <td>{{covoit.annonce.jourDeDepart}}</td>
-            <td>{{covoit.annonce.heureDeDepart}}</td>
-            <td>{{covoit.annonce.lieuDeDepart}}</td>
-            <td>{{covoit.annonce.lieuDeDestination}}</td>
-            <td>
-              <button type="button" class="btn btn-outline-primary btn-sm" (click)="select(covoit);basicModal.show()">Détails</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-
-      <app-lister-reservation></app-lister-reservation>
-
+        </mdb-carousel-item>
+      </mdb-carousel>
     </div>
   </div>
-</div>
+    <br />
+
+    <app-lister-reservation></app-lister-reservation>
+
 
 <!-- *************************************** MODAL *************************************** -->
 
-<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -96,7 +99,8 @@
         <p>Chauffeur : {{selectedCovoit.annonce.collegue.nom}} </p>
       </div>
       <div class="modal-footer">
-        <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Fermer</button>
+        <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="basicModal.hide()"
+          mdbWavesEffect>Fermer</button>
       </div>
     </div>
   </div>

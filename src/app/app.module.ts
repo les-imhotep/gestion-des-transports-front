@@ -24,7 +24,6 @@ import { EspaceAdminComponent } from './espace-admin/espace-admin.component';
 import { BandeauComponent } from './bandeau/bandeau.component';
 
 
-
 const routes: Routes = [
   { path: 'accueil', component: AccueilComponent, canActivate:[StatutConnecteService]},
   { path:'tech', component: TechComponent, canActivate:[StatutConnecteService]}, // /tech accessible uniquement si connecté
@@ -63,7 +62,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
-    FormsModule
+    FormsModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
