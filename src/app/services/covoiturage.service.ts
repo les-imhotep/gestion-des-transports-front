@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, Subject } from 'rxjs';
 import { Covoiturage } from '../models/covoiturage';
 import { Annonce } from '../models/annonce';
@@ -16,42 +16,39 @@ const OPTION_HTTP = { headers: new HttpHeaders({ "Content-Type": "application/js
 export class CovoiturageService {
 
   private _superBus = new Subject<string>();
-  
+
   get superBus(): Observable<string> {
     return this._superBus.asObservable();
   }
 
   constructor(private _http: HttpClient) { }
 
-  listerCovoituragesEnCours(): Observable<Covoiturage[]>{
+  listerCovoituragesEnCours(): Observable<Covoiturage[]> {
     return this._http
-    .get(URL_BACKEND+"collaborateur/reservationsCovoiturage/encours")
-    .pipe(
-      map((data: any[]) => data.map(covoiturage => new Covoiturage(covoiturage.id,covoiturage.collegue, covoiturage.annonce)))
-    )
+      .get(URL_BACKEND + "collaborateur/reservationsCovoiturage/encours")
+      .pipe(
+        map((data: any[]) => data.map(covoiturage => new Covoiturage(covoiturage.id, covoiturage.collegue, covoiturage.annonce)))
+      )
   }
 
-  listerCovoituragesHistorique(): Observable<Covoiturage[]>{
+  listerCovoituragesHistorique(): Observable<Covoiturage[]> {
     return this._http
-    .get(URL_BACKEND+"collaborateur/reservationsCovoiturage/historique")
-    .pipe(
-      map((data: any[]) => data.map(covoiturage => new Covoiturage(covoiturage.id,covoiturage.collegue, covoiturage.annonce)))
-    )
+      .get(URL_BACKEND + "collaborateur/reservationsCovoiturage/historique")
+      .pipe(
+        map((data: any[]) => data.map(covoiturage => new Covoiturage(covoiturage.id, covoiturage.collegue, covoiturage.annonce)))
+      )
   }
 
-  supprimerCovoiturage(id: number): Observable<Covoiturage>{
+  supprimerCovoiturage(id: number): Observable<Covoiturage> {
     let resultat;
-    console.log(id)
-    resultat = this._http.post(URL_BACKEND+"collaborateur/reservationsCovoiturage/"+id, OPTION_HTTP);
+    resultat = this._http.post(URL_BACKEND + "collaborateur/reservationsCovoiturage/" + id, OPTION_HTTP);
     return resultat;
   }
 
-  publierCovoiturage(annonce: Annonce): Observable<Annonce> {
-    return this._http
-      .post(URL_BACKEND + "collaborateur/reservationsCovoiturage/creer", annonce, OPTION_HTTP)
-      .pipe(
-        map(((formServeur: any) => Annonce.fromAnnonceServeur(formServeur))
-        )
-      );
+  publierCovoiturage(annonce: Annonce): Observable<String> {
+    let resultat;
+    resultat = this._http
+      .post(URL_BACKEND + "collaborateur/reservationsCovoiturage/creer", annonce, OPTION_HTTP);
+    return resultat;
   }
 }
