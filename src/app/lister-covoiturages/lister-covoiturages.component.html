@@ -4,7 +4,6 @@
     
 <h2>Vos réservations</h2>
 
-
   <div class="row">
     <div class="col-12">
       <button type="button" class="btn btn-outline-dark pull-right" routerLink="/collaborateur/reservations/creer">Réserver
@@ -16,12 +15,12 @@
       <mdb-carousel class="carousel slide" [animation]="'slide'" [isControls]="false" [noPause]="true" [interval]="0">
         <mdb-carousel-item >
             <div>
-              <h5>Covoiturage en cours</h5>
-              <table class="table table-bordered table-striped table-sm" style="width:1080px">
+              <h5>Covoiturage en cours *</h5>
+              <table class="table table-bordered table-striped table-sm" style="width:1050px">
                 <thead>
                   <tr>
                     <th scope="col">Date de départ</th>
-                    <th scope="col">Hheure de départ</th>
+                    <th scope="col">Heure de départ</th>
                     <th scope="col">Lieu de départ</th>
                     <th scope="col">Lieu de destination</th>
                     <th></th>
@@ -45,12 +44,12 @@
         </mdb-carousel-item>
         <mdb-carousel-item>
           <div>
-            <h5>Historique des covoiturages</h5>
-              <table class="table table-bordered table-striped table-sm" style="width:1080px">
+            <h5>Historique des covoiturages *</h5>
+              <table class="table table-bordered table-striped table-sm" style="width:1050px">
                 <thead>
                   <tr>
                     <th scope="col">Date de départ</th>
-                    <th scope="col">Hheure de départ</th>
+                    <th scope="col">Heure de départ</th>
                     <th scope="col">Lieu de départ</th>
                     <th scope="col">Lieu de destination</th>
                     <th scope="col"> </th>
@@ -78,6 +77,8 @@
     <br />
 
     <app-lister-reservation></app-lister-reservation>
+
+    <p>* Balayer avec la souris pour passer d'un tableau à l'autre</p>
 
 
 <!-- *************************************** MODAL *************************************** -->
