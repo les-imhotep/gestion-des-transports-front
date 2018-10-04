@@ -4,8 +4,7 @@ import { Annonce } from '../models/annonce';
 import { Vehicule } from '../models/vehicule';
 import { AnnonceService } from '../services/annonce.service';
 import { CovoiturageService } from '../services/covoiturage.service';
-import { Observable } from "rxjs/internal/Observable";
-import { AuthService } from "../auth/auth.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservation-covoiturage',
@@ -23,7 +22,7 @@ export class ReservationCovoiturageComponent implements OnInit {
   annonce : Annonce = new Annonce("","","","","","",new Vehicule("","",""),new Collegue("","",""),"");
   selectedAnnonce: Annonce = new Annonce("","","","","","",new Vehicule("","",""),new Collegue("","",""),"");
 
-  constructor(private _postAnnSrv: AnnonceService,private _postCovSrv: CovoiturageService) { }
+  constructor(private _postAnnSrv: AnnonceService,private _postCovSrv: CovoiturageService, private router: Router) { }
 
   ngOnInit() {
     this._postAnnSrv
@@ -40,13 +39,6 @@ export class ReservationCovoiturageComponent implements OnInit {
     this._postCovSrv
     .publierCovoiturage(annonce)
     .subscribe(
-      () => this.annonce = new Annonce("","","","","","","","",""),
-      errServeur => {
-        if (errServeur.error.message) {
-        this.errMsg = errServeur.error.message;
-      } else {
-        this.errMsg = errServeur.error.text;
-      }
-    });
+      () => this.router.navigate(['/collaborateur/reservations']));
   }
 }
