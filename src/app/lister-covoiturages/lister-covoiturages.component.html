@@ -1,21 +1,23 @@
 <app-bandeau></app-bandeau>
 
+<div class="container mt-5">
+    
 <h2>Vos réservations</h2>
 
-<div class="container">
+
   <div class="row">
-    <div class="float-right col-12">
-      <button type="button" class="btn btn-outline-dark center-left" routerLink="/collaborateur/reservations/creer">Réserver
+    <div class="col-12">
+      <button type="button" class="btn btn-outline-dark pull-right" routerLink="/collaborateur/reservations/creer">Réserver
         un transport</button>
     </div>
   </div>
   <div class="row">
     <div class="col-12">
-      <mdb-carousel class="carousel slide mt-5" [animation]="'slide'" [isControls]="false" [noPause]="true" [interval]="0">
-        <mdb-carousel-item>
+      <mdb-carousel class="carousel slide" [animation]="'slide'" [isControls]="false" [noPause]="true" [interval]="0">
+        <mdb-carousel-item >
             <div>
               <h5>Covoiturage en cours</h5>
-              <table class="table table-bordered table-striped">
+              <table class="table table-bordered table-striped table-sm" style="width:1080px">
                 <thead>
                   <tr>
                     <th scope="col">Date de départ</th>
@@ -44,7 +46,7 @@
         <mdb-carousel-item>
           <div>
             <h5>Historique des covoiturages</h5>
-              <table class="table table-bordered table-striped">
+              <table class="table table-bordered table-striped table-sm" style="width:1080px">
                 <thead>
                   <tr>
                     <th scope="col">Date de départ</th>
