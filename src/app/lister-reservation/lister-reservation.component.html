@@ -1,7 +1,8 @@
-    <div class="mt-5">
-      <h5>Réservation de véhicule en cours</h5>
-
-      <table class="table table-bordered table-striped table-sm mt-4">
+<mdb-carousel class="carousel slide" [animation]="'slide'" [isControls]="false" [noPause]="true" [interval]="0">
+<mdb-carousel-item>
+<div>
+  <h5>Réservation de véhicule en cours</h5>          
+    <table class="table table-bordered table-striped table-sm" style="width:1080px">
         <thead>
           <tr>
             <th scope="col">Date / heure de début</th>
@@ -25,16 +26,13 @@
             </td>
           </tr>
         </tbody>
-      </table>
-
-    </div>
-
-
-
-    <div class="mt-5">
-      <h5>Historique des réservation de véhicule</h5>
-
-      <table class="table table-bordered table-striped table-sm  mt-4">
+    </table>
+</div>
+</mdb-carousel-item>
+<mdb-carousel-item>
+  <div>
+      <h5>Historique des réservation de véhicule</h5>           
+          <table class="table table-bordered table-striped table-sm" style="width:1080px">
         <thead>
           <tr>
               <th scope="col">Date / heure de début</th>
@@ -55,5 +53,6 @@
           </tr>
         </tbody>
       </table>
-
     </div>
+  </mdb-carousel-item>
+</mdb-carousel>
