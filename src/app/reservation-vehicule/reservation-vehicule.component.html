@@ -1,3 +1,5 @@
+<p class="h2">Véhicule de société</p>
+
 <div class="row mt-5">
   <div class="col">
     Date / heure de réservation
@@ -25,10 +27,10 @@
           <img class="d-block w-100" src="{{vehicule.photo}}" alt="Second slide">
           <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
         </div>
-        <div class="carousel-caption text-white bg-dark">
-          <h3 class="h3-responsive">{{vehicule.immatriculation}}</h3>
-          <p>{{vehicule.marque}} - {{vehicule.modele}}</p>
-          <button type="button" class="btn btn-outline-primary btn-sm" (click)="select(vehicule);basicModal.show()">Réserver</button>
+        <div class="carousel-caption text-white ">
+          <h4 class="h4-responsive">{{vehicule.immatriculation}}</h4>
+          <p>{{vehicule.marque}} {{vehicule.modele}} - {{vehicule.categorie}}</p>
+          <button *ngIf="vehicule.statut == 'EN_SERVICE'" type="button" class="btn btn-outline-primary" (click)="select(vehicule);basicModal.show()">Réserver</button>
         </div>
       </mdb-carousel-item>
       
@@ -39,11 +41,7 @@
 </div>
 
 
-
-
-
 <!-- *************************************** MODAL *************************************** -->
-
 
 
 <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
