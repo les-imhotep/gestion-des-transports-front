@@ -12,13 +12,13 @@ import { Collegue } from '../models/collegue';
 })
 export class CreerAnnonceComponent implements OnInit {
 
-  annonce = new Annonce("","","","","","",new Vehicule("","","",""), new Collegue("","",""),"");
-  selectedAnnonce: Annonce = new Annonce("", "","","","","","",new Vehicule("","","",""),new Collegue("","",""));
+  annonce = new Annonce("","","","","","",new Vehicule("","",""), new Collegue("","",""),"");
+  selectedAnnonce: Annonce = new Annonce("", "","","","","","",new Vehicule("","",""),new Collegue("","",""));
   errMsg: string;
   constructor(private _annonceSrv: AnnonceService, private router: Router) { }
 
   ngOnInit() {
-    this.annonce = new Annonce("","","","","","",new Vehicule("","","", ""), new Collegue("","",""),"");
+    this.annonce = new Annonce("","","","","","",new Vehicule("","", ""), new Collegue("","",""),"");
 }
 
   submit() { 
