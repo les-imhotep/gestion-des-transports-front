@@ -22,7 +22,6 @@ export class ListerCovoituragesComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.selectedCovoit);
     this._postSrv
       .listerCovoituragesEnCours()
       .subscribe(
