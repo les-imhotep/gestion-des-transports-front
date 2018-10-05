@@ -13,6 +13,11 @@
     Date / heure de retour
     <input type="date" [(ngModel)]="dateDeRetour" id="dateRetour" class="ml-4 mb-4" required>
     <input type="time" [(ngModel)]="heureDeRetour" id="heureRetour" class="mb-4 ml-3" required>
+    
+  </div>
+  <div class="col">
+    <input type="checkbox" [(ngModel)]="chauffeur" class="form-check-input" id="chauffeur">
+    <label class="form-check-label" for="exampleCheck1">Avec chauffeur</label>
   </div>
 </div>
 
@@ -33,9 +38,9 @@
           <button *ngIf="vehicule.statut == 'EN_SERVICE'" type="button" class="btn btn-outline-primary" (click)="select(vehicule);basicModal.show()">Réserver</button>
         </div>
       </mdb-carousel-item>
-      
+
     </div>
-  
+
   </mdb-carousel>
 
 </div>
@@ -62,8 +67,10 @@
         <p>Modèle : {{selectedReservation.vehiculeSoc.modele}}</p>
       </div>
       <div class="modal-footer">
-          <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Annuler</button>
-        <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="reserverVehicule(selectedReservation)" mdbWavesEffect>Confirmer</button>
+        <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="basicModal.hide()"
+          mdbWavesEffect>Annuler</button>
+        <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="reserverVehicule(selectedReservation)"
+          mdbWavesEffect>Confirmer</button>
       </div>
     </div>
   </div>
