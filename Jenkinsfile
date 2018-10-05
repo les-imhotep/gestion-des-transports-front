@@ -3,7 +3,7 @@ pipeline {
     environment {
         GH_ORG = "les-imhotep"
         APP_REPO = "gestion-des-transports-front"
-        BACKEND_PROD = "https://transports-back.cleverapps.io"
+        BACKEND_PROD = "https://transports-back.cleverapps.io/"
     }
     stages {
         stage('install') {
