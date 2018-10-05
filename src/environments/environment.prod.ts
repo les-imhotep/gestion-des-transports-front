@@ -2,5 +2,5 @@ import { config } from './common';
 
 export const environment = Object.assign({
   production: true,
-  baseUrl: '__BACKEND_URL__'
+  baseUrl: 'https://les-imhotep.github.io/gestion-des-transports-front/'
 }, config);
