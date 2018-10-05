@@ -1,18 +1,12 @@
-<div class="text-center">
+<app-menu-collaborateur></app-menu-collaborateur>
+<br>
+<br>
 
-  <h1 class="h1 h1-responsive">Gestion des Transports </h1>
-  <div>
-      <img src="https://rocketleague.media.zestyio.com/logo_hot-wheels.f1cb27a519bdb5b6ed34049a5b86e317.png" width="150" height="40" alt="">
-  </div>
-  <div class="h4 h4-responsive"> 
-    <div *ngIf="!(collegueConnecte | async).estAnonyme()">
-        <span>Bienvenue </span>
-        <span>{{(collegueConnecte | async).nom}} </span>
-       <span>{{(collegueConnecte | async).prenom}}</span>
-       <span> ! </span>
-    </div>
-    <br />
+<div class="h4 h4-responsive text-center mt-4 mb-4">
+  <div *ngIf="!(collegueConnecte | async).estAnonyme()">
+    <span>Bienvenue </span>
+    <span>{{(collegueConnecte | async).nom}} </span>
+    <span>{{(collegueConnecte | async).prenom}}</span>
+    <span> ! </span>
   </div>
 </div>
-
-<app-menu-collaborateur></app-menu-collaborateur>

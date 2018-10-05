@@ -1,33 +1,29 @@
-<section class ="barre de navigation">
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark fixed-top text-white pink">
 
+  <!-- Navbar brand -->
+  <mdb-navbar-brand><a class="navbar-brand font-weight-bold">Transport3000</a></mdb-navbar-brand>
 
-  <nav class="navbar-expand-lg navbar-light bg-light font-weight-bold">
-  
-    <!-- bouton hamburger -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="basicExampleNav">
-      <div class="navbar-nav mr-auto">
-  
-         <!-- Menu de base -->
-        <a class="nav-item nav-link" routerLink="/collaborateur/accueil">Accueil</a>
-        <a class="nav-item nav-link" routerLink="/collaborateur/reservations">Vos réservations</a>
-        <a class="nav-item nav-link" routerLink="/collaborateur/annonces">Vos annonces</a>
-        <!-- Menu pour le role 'ROLE_ADMINISTRATEUR'-->
-        <a class="nav-item nav-link" routerLink="/administrateur" *ngIf="isAdmin()">Espace administrateur</a>
-        
-      </div>
-  
-       <!-- Bouton de déconnexion -->
-      <div class="col-2">
-          <a  class="btn-sm btn-danger pull-right" (click)="seDeconnecter()">Se déconnecter</a>
-          </div>
+  <!-- Collapsible content -->
+  <links>
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto ">
+      <a class="nav-item nav-link text-white" routerLink="/collaborateur/accueil">Accueil</a>
+      <a class="nav-item nav-link text-white" routerLink="/collaborateur/reservations">Vos réservations</a>
+      <a class="nav-item nav-link text-white" routerLink="/collaborateur/annonces">Vos annonces</a>
+
+      <a class="nav-item nav-link text-white" routerLink="/administrateur" *ngIf="isAdmin()">Espace administrateur</a>
+
+    </ul>
+
+    <div class="col-2">
+      <a class="btn-sm btn-primary pull-right" (click)="seDeconnecter()">Se déconnecter</a>
     </div>
-  </nav>
-  
-  
-  </section>
+    <!-- Links -->
+
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->
