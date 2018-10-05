@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, Subject } from 'rxjs';
 import { Reservation } from '../models/reservation';
 import { Vehicule } from '../models/vehicule';
-import { environment } from '../../environments/environment';
+import { environment } from '../../environments/environment.prod';
 import { map } from 'rxjs/operators';
 import { VehiculeDeSociete } from '../models/vehiculeDeSociete';
 
