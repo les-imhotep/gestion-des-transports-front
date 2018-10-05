@@ -6,14 +6,14 @@ export class Reservation {
     vehiculeSoc: Vehicule;
     depart: Date;
     arrive: Date;
+    chauffeur: boolean;
 
-
-    constructor(id, vehiculeSoc, depart, arrive) {
+    constructor(id, vehiculeSoc, depart, arrive, chauffeur) {
         
         this.id = id;
         this.vehiculeSoc = vehiculeSoc;
         this.depart = depart;
         this.arrive = arrive;
-        
+        this.chauffeur = chauffeur;
     }
 }

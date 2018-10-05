@@ -11,12 +11,13 @@ import { ReservationService } from '../services/reservation.service';
 })
 export class ReservationVehiculeComponent implements OnInit {
 
+  chauffeur: boolean = false;
   dateDeDepart: string;
   dateDeRetour: string;
   heureDeDepart: string;
   heureDeRetour: string;
   vehiculeDeSociete: Vehicule[] = [];
-  selectedReservation: Reservation = new Reservation("",new Vehicule("","",""),"","")
+  selectedReservation: Reservation = new Reservation("",new Vehicule("","",""),"","","");
 
   constructor(private router: Router, private _postSrv: ReservationService) {}
 
@@ -31,6 +32,7 @@ export class ReservationVehiculeComponent implements OnInit {
     this.selectedReservation.vehiculeSoc = vehicule;
     this.selectedReservation.depart = new Date(this.dateDeDepart.concat("T"+this.heureDeDepart+":00"));
     this.selectedReservation.arrive = new Date(this.dateDeRetour.concat("T"+this.heureDeRetour+":00"));
+    this.selectedReservation.chauffeur = this.chauffeur;
   }
 
   reserverVehicule(reservation: Reservation) {

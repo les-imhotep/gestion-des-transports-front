@@ -37,7 +37,7 @@ export class ReservationService {
     return this._http
       .get(URL_BACKEND + "collaborateur/reservationsVehicule/encours")
       .pipe(
-        map((data: any[]) => data.map(reservation => new Reservation(reservation.id, reservation.vehiculeSoc, reservation.depart, reservation.arrive)))
+        map((data: any[]) => data.map(reservation => new Reservation(reservation.id, reservation.vehiculeSoc, reservation.depart, reservation.arrive, reservation.chauffeur)))
       )
   }
 
@@ -45,7 +45,7 @@ export class ReservationService {
     return this._http
       .get(URL_BACKEND + "collaborateur/reservationsVehicule/historique")
       .pipe(
-        map((data: any[]) => data.map(reservation => new Reservation(reservation.id, reservation.vehiculeSoc, reservation.depart, reservation.arrive)))
+        map((data: any[]) => data.map(reservation => new Reservation(reservation.id, reservation.vehiculeSoc, reservation.depart, reservation.arrive, reservation.chauffeur)))
       )
   }
 
