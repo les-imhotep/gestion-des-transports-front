@@ -27,7 +27,7 @@ export class ReservationService {
     return this._http
       .get(URL_BACKEND + "collaborateur/reservations/creer")
       .pipe(
-        map((data: any[]) => data.map(vehicule =>  new VehiculeDeSociete(vehicule.immatriculation, vehicule.marque, vehicule.modele, vehicule.photo, vehicule.categorie, vehicule.statut))
+        map((data: any[]) => data.map(vehicule =>  new VehiculeDeSociete(vehicule.immatriculation, vehicule.marque, vehicule.modele, vehicule.nombreDePlace, vehicule.photo, vehicule.categorie, vehicule.statut))
         )
       )
 
