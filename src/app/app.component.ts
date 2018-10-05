@@ -19,13 +19,6 @@ export class AppComponent implements OnInit {
   constructor(private _authSrv: AuthService, private _router: Router) {
 
   }
-  /*
-  seDeconnecter() {
-    this._authSrv.seDeconnecter().subscribe(
-      value => this._router.navigate(['/auth'])
-    );
-  }
-  */
 
   /**
    * A l'initialisation, le composant s'abonne au flux du collègue courant connecté.

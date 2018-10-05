@@ -29,14 +29,6 @@ export class Annonce {
 
     static fromAnnonceServeur(annonceServeur: any): Annonce {
         const annonceIhm = new Annonce("","","","","","","","", "");
-        annonceIhm.jourDeDepart = annonceServeur.jourDeDepart;
-        annonceIhm.heureDeDepart = annonceServeur.heureDeDepart;
-        annonceIhm.lieuDeDepart = annonceServeur.lieuDeDepart;
-        annonceIhm.lieuDeDestination = annonceServeur.lieuDeDestination;
-        annonceIhm.nombreDeVoyageurs = annonceServeur.nombreDeVoyageurs;
-        annonceIhm.nombreDePlacesDisponibles = annonceServeur.nombreDePlacesDisponibles;
-        annonceIhm.vehicule = annonceServeur.vehicule;
-        annonceIhm.collegue = annonceServeur.collegue;
         return annonceIhm;
 }
 }
