@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, Subject } from 'rxjs';
 import { Covoiturage } from '../models/covoiturage';
 import { Annonce } from '../models/annonce';
-import { environment } from '../../environments/environment.prod';
+import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators';
 
 const URL_BACKEND = environment.baseUrl;
