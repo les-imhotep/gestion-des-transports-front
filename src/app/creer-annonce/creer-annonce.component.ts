@@ -13,8 +13,8 @@ import { ModalDirective } from 'angular-bootstrap-md';
 })
 export class CreerAnnonceComponent implements OnInit {
 
-  annonce = new Annonce("","","","","","",new Vehicule("","",""), new Collegue("","",""),"");
-  selectedAnnonce: Annonce = new Annonce("", "","","","","","",new Vehicule("","",""),new Collegue("","",""));
+  annonce = new Annonce("","","","","","",new Vehicule("","","",""), new Collegue("","",""),"");
+  selectedAnnonce: Annonce = new Annonce("", "","","","","","",new Vehicule("","","",""),new Collegue("","",""));
   errMsg: string = "";
 
   
@@ -24,7 +24,7 @@ export class CreerAnnonceComponent implements OnInit {
   constructor(private _annonceSrv: AnnonceService, private router: Router) { }
 
   ngOnInit() {
-    this.annonce = new Annonce("","","","","","",new Vehicule("","",""), new Collegue("","",""),"");
+    this.annonce = new Annonce("","","","","","",new Vehicule("","","",""), new Collegue("","",""),"");
     this.errMsg = "";
 }
 

@@ -6,8 +6,8 @@ export class VehiculeDeSociete extends Vehicule {
     statut: string;
 
 
-    constructor(immatriculation, marque, modele,photo, categorie, statut){
-        super(immatriculation, marque, modele)
+    constructor(immatriculation, marque, modele, nombreDePlace, photo, categorie, statut){
+        super(immatriculation, marque, modele, nombreDePlace)
         this.photo = photo;
         this.categorie = categorie;
         this.statut = statut;

@@ -17,7 +17,7 @@ export class ReservationVehiculeComponent implements OnInit {
   heureDeDepart: string;
   heureDeRetour: string;
   vehiculeDeSociete: Vehicule[] = [];
-  selectedReservation: Reservation = new Reservation("",new Vehicule("","",""),"","","");
+  selectedReservation: Reservation = new Reservation("",new Vehicule("","","",""),"","","");
 
   constructor(private router: Router, private _postSrv: ReservationService) {}
 
