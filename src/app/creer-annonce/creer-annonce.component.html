@@ -84,35 +84,54 @@
         </div>
         <div class="modal-footer">
           <button type="button" mdbBtn color="danger" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Annuler</button>
-          <button type="button" mdbBtn color="success" class="waves-light" aria-label="Valider" (click)="submit();ngOnInit();basicModal.hide();basicModalExc.show()"mdbWavesEffect>Confirmer</button>
+          <button type="button" mdbBtn color="success" class="waves-light" aria-label="Valider" (click)="submit();basicModal.hide()"mdbWavesEffect>Confirmer</button>
         </div>
       </div>
     </div>
   </div>
 
   <!-- *************************************** MODAL exception *************************************** -->
-
-<div mdbModal #basicModalExc="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
-          <span aria-hidden="true">×</span>
-        </button>
-        <h4 class="modal-title w-100" id="myModalLabel">ECHEC !</h4>
-      </div>
-      <div class="modal-body">
-          <div class="modal-body">
-              <div class="row" *ngIf="errMsg">
-                {{errMsg}}
+    <div mdbModal #basicModalExc="mdbModal"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close pull-right" aria-label="Close" (click)="basicModalExc.hide()">
+                <span aria-hidden="true">×</span>
+              </button>
+              <h4 class="modal-title w-100" id="myModalLabel">ECHEC !</h4>
             </div>
-        
+            <div class="modal-body">
+                
+                  {{errMsg}}
+            </div>
+            <div class="modal-footer">
+              <button type="button" mdbBtn color="danger" class="waves-light" aria-label="Valider" (click)="basicModalExc.hide()"mdbWavesEffect>OK</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" mdbBtn color="danger" class="waves-light" aria-label="Valider" (click)="basicModalExc.hide()"mdbWavesEffect>OK</button>
+
+  <!-- *************************************** MODAL OK *************************************** -->
+  <div mdbModal #basicModalOK="mdbModal"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close pull-right" aria-label="Close" (click)="basicModalOK.hide()">
+              <span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title w-100" id="myModalLabel">Réussite !</h4>
+          </div>
+          <div class="modal-body">
+              Votre annonce a bien été enregistrée !
+          </div>
+          <div class="modal-footer">
+            <button type="button" mdbBtn color="success" class="waves-light" aria-label="Valider" routerLink="/collaborateur/annonces" (click)="ngOnInit();basicModalOK.hide()"mdbWavesEffect>OK</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+
+
+
 
 

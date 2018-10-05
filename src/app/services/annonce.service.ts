@@ -70,9 +70,8 @@ export class AnnonceService {
     return this._http
       .post(URL_BACKEND + "collaborateur/annonces/creer", annonce, OPTION_HTTP)
       .pipe(
-        map(((formServeur: any) => Annonce.fromAnnonceServeur(formServeur)
-        )
-        )
+          map((formServeur: any) => {return Annonce.fromAnnonceServeur(formServeur);
+          })
       );
   }
 
