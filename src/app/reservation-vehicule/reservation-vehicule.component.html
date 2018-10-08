@@ -36,6 +36,7 @@
           <h4 class="h4-responsive">{{vehicule.immatriculation}}</h4>
           <p>{{vehicule.marque}} {{vehicule.modele}} - {{vehicule.categorie}}</p>
           <button *ngIf="vehicule.statut == 'EN_SERVICE'" type="button" class="btn btn-outline-primary" (click)="select(vehicule);basicModal.show()">Réserver</button>
+          <p class="font-weight-bold text-warning" *ngIf="vehicule.statut != 'EN_SERVICE'">INDISPONIBLE</p>
         </div>
       </mdb-carousel-item>
 
